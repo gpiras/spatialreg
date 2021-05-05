@@ -8,21 +8,29 @@
 
 <title>Matrix exponential spatial lag model — lagmess • spatialreg</title>
 
+
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -30,10 +38,10 @@
 
 
 
-<meta property="og:title" content="Matrix exponential spatial lag model — lagmess" />
 
+<meta property="og:title" content="Matrix exponential spatial lag model — lagmess" />
 <meta property="og:description" content="The function fits a matrix exponential spatial lag model, using optim to find the value of alpha, the spatial coefficient." />
-<meta name="twitter:card" content="summary" />
+
 
 
 
@@ -47,9 +55,10 @@
 <![endif]-->
 
 
+
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -63,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">spatialreg</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1-7</span>
       </span>
     </div>
 
@@ -71,7 +80,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -93,12 +102,14 @@
     </li>
   </ul>
 </li>
+<li>
+  <a href="../news/index.html">Changelog</a>
+</li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/r-spatial/spatialreg">
-    <span class="fa fa-github fa-lg"></span>
+  <a href="https://github.com/r-spatial/spatialreg/">
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -109,6 +120,7 @@
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -120,22 +132,20 @@
     </div>
 
     <div class="ref-description">
-    
     <p>The function fits a matrix exponential spatial lag model, using <code>optim</code> to find the value of <code>alpha</code>, the spatial coefficient.</p>
-    
     </div>
 
-    <pre class="usage"><span class='fu'>lagmess</span>(<span class='no'>formula</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(), <span class='no'>listw</span>, <span class='kw'>zero.policy</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>na.action</span> <span class='kw'>=</span> <span class='no'>na.fail</span>,
- <span class='kw'>q</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>start</span> <span class='kw'>=</span> -<span class='fl'>2.5</span>, <span class='kw'>control</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(), <span class='kw'>method</span><span class='kw'>=</span><span class='st'>"BFGS"</span>, <span class='kw'>verbose</span><span class='kw'>=</span><span class='kw'>NULL</span>,
- <span class='kw'>use_expm</span><span class='kw'>=</span><span class='fl'>FALSE</span>)</pre>
-    
+    <pre class="usage"><span class='fu'>lagmess</span><span class='op'>(</span><span class='va'>formula</span>, data <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='va'>listw</span>, zero.policy <span class='op'>=</span> <span class='cn'>NULL</span>, na.action <span class='op'>=</span> <span class='va'>na.fail</span>,
+ q <span class='op'>=</span> <span class='fl'>10</span>, start <span class='op'>=</span> <span class='op'>-</span><span class='fl'>2.5</span>, control<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='op'>)</span>, method<span class='op'>=</span><span class='st'>"BFGS"</span>, verbose<span class='op'>=</span><span class='cn'>NULL</span>,
+ use_expm<span class='op'>=</span><span class='cn'>FALSE</span><span class='op'>)</span></pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>formula</th>
       <td><p>a symbolic description of the model to be fit. The details 
-of model specification are given for <code><a href='https://www.rdocumentation.org/packages/stats/topics/lm'>lm()</a></code></p></td>
+of model specification are given for <code><a href='https://rdrr.io/r/stats/lm.html'>lm()</a></code></p></td>
     </tr>
     <tr>
       <th>data</th>
@@ -154,7 +164,7 @@ neighbours, if FALSE assign NA - causing <code>lagmess()</code> to terminate wit
     </tr>
     <tr>
       <th>na.action</th>
-      <td><p>a function (default <code><a href='https://www.rdocumentation.org/packages/base/topics/options'>options("na.action")</a></code>), can also be <code>na.omit</code> or <code>na.exclude</code> with consequences for residuals and fitted values - in these cases the weights list will be subsetted to remove NAs in the data. It may be necessary to set zero.policy to TRUE because this subsetting may create no-neighbour observations. Note that only weights lists created without using the glist argument to <code>nb2listw</code> may be subsetted.</p></td>
+      <td><p>a function (default <code><a href='https://rdrr.io/r/base/options.html'>options("na.action")</a></code>), can also be <code>na.omit</code> or <code>na.exclude</code> with consequences for residuals and fitted values - in these cases the weights list will be subsetted to remove NAs in the data. It may be necessary to set zero.policy to TRUE because this subsetting may create no-neighbour observations. Note that only weights lists created without using the glist argument to <code>nb2listw</code> may be subsetted.</p></td>
     </tr>
     <tr>
       <th>q</th>
@@ -178,10 +188,10 @@ neighbours, if FALSE assign NA - causing <code>lagmess()</code> to terminate wit
     </tr>
     <tr>
       <th>use_expm</th>
-      <td><p>default FALSE; if TRUE use <code><a href='https://www.rdocumentation.org/packages/expm/topics/expAtv'>expm::expAtv</a></code> instead of a truncated power series of W</p></td>
+      <td><p>default FALSE; if TRUE use <code><a href='https://rdrr.io/pkg/expm/man/expAtv.html'>expm::expAtv</a></code> instead of a truncated power series of W</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>The underlying spatial lag model:</p>
@@ -189,10 +199,9 @@ neighbours, if FALSE assign NA - causing <code>lagmess()</code> to terminate wit
 <p>where \(\rho\) is the spatial parameter may be fitted by maximum likelihood. In that case, the log likelihood function includes the logartithm of cumbersome Jacobian term \(|I - \rho W|\). If we rewrite the model as:</p>
 <p>$$S y = X \beta + \varepsilon$$</p>
 <p>we see that in the ML case \(S y = (I - \rho W) y\). If W is row-stochastic, S may be expressed as a linear combination of row-stochastic matrices. By pre-computing the matrix \([y Wy, W^2y, ..., W^{q-1}y]\), the term \(S y (\alpha)\) can readily be found by numerical optimization using the matrix exponential approach. \(\alpha\) and \(\rho\) are related as \(\rho = 1 - \exp{\alpha}\), conditional on the number of matrix power terms taken <code>q</code>.</p>
-    
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>The function returns an object of class <code>lagmess</code> with components:</p>
+    <p>The function returns an object of class <code>Lagmess</code> with components:</p>
 <dt>lmobj</dt><dd><p>the <code>lm</code> object returned after fitting <code>alpha</code></p></dd>
   <dt>alpha</dt><dd><p>the spatial coefficient</p></dd>
   <dt>alphase</dt><dd><p>the standard error of the spatial coefficient using the numerical Hessian</p></dd>
@@ -203,24 +212,25 @@ neighbours, if FALSE assign NA - causing <code>lagmess()</code> to terminate wit
   <dt>na.action</dt><dd><p>(possibly) named vector of excluded or omitted observations if non-default na.action argument used</p></dd>
   <dt>nullLL</dt><dd><p>the log likelihood of the aspatial model for the same data</p></dd>
 
-    
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>J. P. LeSage and R. K. Pace (2007) A matrix exponential specification. Journal of Econometrics, 140, 190-214; J. P. LeSage and R. K. Pace (2009) Introduction to Spatial Econometrics. CRC Press, Chapter 9.</p>
-    
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Roger Bivand <a href='mailto:Roger.Bivand@nhh.no'>Roger.Bivand@nhh.no</a> and Eric Blankmeyer</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='ML_models.html'>lagsarlm</a></code>, <code><a href='https://www.rdocumentation.org/packages/stats/topics/optim'>optim</a></code></p></div>
-    
+    <div class='dont-index'><p><code><a href='ML_models.html'>lagsarlm</a></code>, <code><a href='https://rdrr.io/r/stats/optim.html'>optim</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>#require(spdep, quietly=TRUE)</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='no'>baltimore</span>, <span class='kw'>package</span><span class='kw'>=</span><span class='st'>"spData"</span>)
-<span class='no'>baltimore</span>$<span class='no'>AGE</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/ifelse'>ifelse</a></span>(<span class='no'>baltimore</span>$<span class='no'>AGE</span> <span class='kw'>&lt;</span> <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='no'>baltimore</span>$<span class='no'>AGE</span>)
-<span class='no'>lw</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>spdep</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/spdep/topics/nb2listw'>nb2listw</a></span>(<span class='kw pkg'>spdep</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/spdep/topics/knn2nb'>knn2nb</a></span>(<span class='kw pkg'>spdep</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/spdep/topics/knearneigh'>knearneigh</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/cbind'>cbind</a></span>(<span class='no'>baltimore</span>$<span class='no'>X</span>, <span class='no'>baltimore</span>$<span class='no'>Y</span>), <span class='kw'>k</span><span class='kw'>=</span><span class='fl'>7</span>)))
-<span class='no'>obj1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/lm'>lm</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>log</a></span>(<span class='no'>PRICE</span>) ~ <span class='no'>PATIO</span> + <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>log</a></span>(<span class='no'>AGE</span>) + <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>log</a></span>(<span class='no'>SQFT</span>),
- <span class='kw'>data</span><span class='kw'>=</span><span class='no'>baltimore</span>)
-<span class='kw pkg'>spdep</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/spdep/topics/lm.morantest'>lm.morantest</a></span>(<span class='no'>obj1</span>, <span class='no'>lw</span>)</div><div class='output co'>#&gt; 
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>baltimore</span>, package<span class='op'>=</span><span class='st'>"spData"</span><span class='op'>)</span>
+<span class='va'>baltimore</span><span class='op'>$</span><span class='va'>AGE</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='va'>baltimore</span><span class='op'>$</span><span class='va'>AGE</span> <span class='op'>&lt;</span> <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='va'>baltimore</span><span class='op'>$</span><span class='va'>AGE</span><span class='op'>)</span>
+<span class='va'>lw</span> <span class='op'>&lt;-</span> <span class='fu'>spdep</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/spdep/man/nb2listw.html'>nb2listw</a></span><span class='op'>(</span><span class='fu'>spdep</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/spdep/man/knn2nb.html'>knn2nb</a></span><span class='op'>(</span><span class='fu'>spdep</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/spdep/man/knearneigh.html'>knearneigh</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='va'>baltimore</span><span class='op'>$</span><span class='va'>X</span>, <span class='va'>baltimore</span><span class='op'>$</span><span class='va'>Y</span><span class='op'>)</span>, k<span class='op'>=</span><span class='fl'>7</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>obj1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>PRICE</span><span class='op'>)</span> <span class='op'>~</span> <span class='va'>PATIO</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>AGE</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>SQFT</span><span class='op'>)</span>,
+ data<span class='op'>=</span><span class='va'>baltimore</span><span class='op'>)</span>
+<span class='fu'>spdep</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/spdep/man/lm.morantest.html'>lm.morantest</a></span><span class='op'>(</span><span class='va'>obj1</span>, <span class='va'>lw</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; 	Global Moran I for regression residuals
 #&gt; 
 #&gt; data:  
@@ -228,12 +238,13 @@ neighbours, if FALSE assign NA - causing <code>lagmess()</code> to terminate wit
 #&gt; baltimore)
 #&gt; weights: lw
 #&gt; 
-#&gt; Moran I statistic standard deviate = 7.4782, p-value = 3.769e-14
+#&gt; Moran I statistic standard deviate = 7.4648, p-value = 4.171e-14
 #&gt; alternative hypothesis: greater
 #&gt; sample estimates:
 #&gt; Observed Moran I      Expectation         Variance 
-#&gt;      0.245497850     -0.007859541      0.001147832 
-#&gt; </div><div class='input'><span class='kw pkg'>spdep</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/spdep/topics/lm.LMtests'>lm.LMtests</a></span>(<span class='no'>obj1</span>, <span class='no'>lw</span>, <span class='kw'>test</span><span class='kw'>=</span><span class='st'>"all"</span>)</div><div class='output co'>#&gt; 
+#&gt;      0.245149959     -0.007853660      0.001148722 
+#&gt; </div><div class='input'><span class='fu'>spdep</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/spdep/man/lm.LMtests.html'>lm.LMtests</a></span><span class='op'>(</span><span class='va'>obj1</span>, <span class='va'>lw</span>, test<span class='op'>=</span><span class='st'>"all"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; 	Lagrange multiplier diagnostics for spatial dependence
 #&gt; 
 #&gt; data:  
@@ -241,17 +252,7 @@ neighbours, if FALSE assign NA - causing <code>lagmess()</code> to terminate wit
 #&gt; baltimore)
 #&gt; weights: lw
 #&gt; 
-#&gt; LMerr = 48.823, df = 1, p-value = 2.802e-12
-#&gt; 
-#&gt; 
-#&gt; 	Lagrange multiplier diagnostics for spatial dependence
-#&gt; 
-#&gt; data:  
-#&gt; model: lm(formula = log(PRICE) ~ PATIO + log(AGE) + log(SQFT), data =
-#&gt; baltimore)
-#&gt; weights: lw
-#&gt; 
-#&gt; LMlag = 83.434, df = 1, p-value &lt; 2.2e-16
+#&gt; LMerr = 48.648, df = 1, p-value = 3.063e-12
 #&gt; 
 #&gt; 
 #&gt; 	Lagrange multiplier diagnostics for spatial dependence
@@ -261,7 +262,7 @@ neighbours, if FALSE assign NA - causing <code>lagmess()</code> to terminate wit
 #&gt; baltimore)
 #&gt; weights: lw
 #&gt; 
-#&gt; RLMerr = 1.2309, df = 1, p-value = 0.2672
+#&gt; LMlag = 83.091, df = 1, p-value &lt; 2.2e-16
 #&gt; 
 #&gt; 
 #&gt; 	Lagrange multiplier diagnostics for spatial dependence
@@ -271,7 +272,7 @@ neighbours, if FALSE assign NA - causing <code>lagmess()</code> to terminate wit
 #&gt; baltimore)
 #&gt; weights: lw
 #&gt; 
-#&gt; RLMlag = 35.843, df = 1, p-value = 2.139e-09
+#&gt; RLMerr = 1.2535, df = 1, p-value = 0.2629
 #&gt; 
 #&gt; 
 #&gt; 	Lagrange multiplier diagnostics for spatial dependence
@@ -281,9 +282,21 @@ neighbours, if FALSE assign NA - causing <code>lagmess()</code> to terminate wit
 #&gt; baltimore)
 #&gt; weights: lw
 #&gt; 
-#&gt; SARMA = 84.665, df = 2, p-value &lt; 2.2e-16
-#&gt; </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/system.time'>system.time</a></span>(<span class='no'>obj2</span> <span class='kw'>&lt;-</span> <span class='fu'>lagmess</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>log</a></span>(<span class='no'>PRICE</span>) ~ <span class='no'>PATIO</span> + <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>log</a></span>(<span class='no'>AGE</span>) + <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>log</a></span>(<span class='no'>SQFT</span>), <span class='kw'>data</span><span class='kw'>=</span><span class='no'>baltimore</span>, <span class='kw'>listw</span><span class='kw'>=</span><span class='no'>lw</span>))</div><div class='output co'>#&gt;    user  system elapsed 
-#&gt;   0.053   0.000   0.054 </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>obj2</span>)</div><div class='output co'>#&gt; Matrix exponential spatial lag model:
+#&gt; RLMlag = 35.696, df = 1, p-value = 2.306e-09
+#&gt; 
+#&gt; 
+#&gt; 	Lagrange multiplier diagnostics for spatial dependence
+#&gt; 
+#&gt; data:  
+#&gt; model: lm(formula = log(PRICE) ~ PATIO + log(AGE) + log(SQFT), data =
+#&gt; baltimore)
+#&gt; weights: lw
+#&gt; 
+#&gt; SARMA = 84.344, df = 2, p-value &lt; 2.2e-16
+#&gt; </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/system.time.html'>system.time</a></span><span class='op'>(</span><span class='va'>obj2</span> <span class='op'>&lt;-</span> <span class='fu'>lagmess</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>PRICE</span><span class='op'>)</span> <span class='op'>~</span> <span class='va'>PATIO</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>AGE</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>SQFT</span><span class='op'>)</span>, data<span class='op'>=</span><span class='va'>baltimore</span>, listw<span class='op'>=</span><span class='va'>lw</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;    user  system elapsed 
+#&gt;   0.048   0.000   0.049 </div><div class='input'><span class='op'>(</span><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>obj2</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Matrix exponential spatial lag model:
 #&gt; 
 #&gt; Call:
 #&gt; lagmess(formula = log(PRICE) ~ PATIO + log(AGE) + log(SQFT), 
@@ -291,26 +304,33 @@ neighbours, if FALSE assign NA - causing <code>lagmess()</code> to terminate wit
 #&gt; 
 #&gt; Residuals:
 #&gt;       Min        1Q    Median        3Q       Max 
-#&gt; -2.026015 -0.141654  0.050901  0.224067  1.072942 
+#&gt; -2.026722 -0.141191  0.050831  0.223830  1.073114 
 #&gt; 
 #&gt; Coefficients:
 #&gt;              Estimate Std. Error t value  Pr(&gt;|t|)
-#&gt; (Intercept)  1.549087   0.214465  7.2230 9.553e-12
-#&gt; PATIO        0.259322   0.086871  2.9851  0.003176
-#&gt; log(AGE)    -0.148169   0.035244 -4.2041 3.899e-05
-#&gt; log(SQFT)    0.300203   0.071582  4.1939 4.066e-05
+#&gt; (Intercept)  1.546376   0.214513  7.2088 1.039e-11
+#&gt; PATIO        0.258287   0.086891  2.9726  0.003303
+#&gt; log(AGE)    -0.148174   0.035252 -4.2033 3.912e-05
+#&gt; log(SQFT)    0.300966   0.071598  4.2036 3.908e-05
 #&gt; 
-#&gt; Residual standard error: 0.41648 on 207 degrees of freedom
-#&gt; Multiple R-squared:  0.22384,	Adjusted R-squared:  0.21259 
-#&gt; F-statistic: 19.899 on 3 and 207 DF,  p-value: 2.2574e-11
+#&gt; Residual standard error: 0.41658 on 207 degrees of freedom
+#&gt; Multiple R-squared:  0.22373,	Adjusted R-squared:  0.21248 
+#&gt; F-statistic: 19.887 on 3 and 207 DF,  p-value: 2.2881e-11
 #&gt; 
-#&gt; Alpha: -0.64248, standard error: 0.10411
-#&gt;     z-value: -6.1711, p-value: 6.7823e-10
-#&gt; LR test value: 48.392, p-value: 3.4905e-12
-#&gt; Implied rho: 0.474015 
-#&gt; </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/system.time'>system.time</a></span>(<span class='no'>obj2a</span> <span class='kw'>&lt;-</span> <span class='fu'>lagmess</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>log</a></span>(<span class='no'>PRICE</span>) ~ <span class='no'>PATIO</span> + <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>log</a></span>(<span class='no'>AGE</span>) + <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>log</a></span>(<span class='no'>SQFT</span>), <span class='kw'>data</span><span class='kw'>=</span><span class='no'>baltimore</span>, <span class='kw'>listw</span><span class='kw'>=</span><span class='no'>lw</span>,
- <span class='kw'>use_expm</span><span class='kw'>=</span><span class='fl'>TRUE</span>))</div><div class='output co'>#&gt;    user  system elapsed 
-#&gt;   0.715   0.002   0.721 </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>obj2a</span>)</div><div class='output co'>#&gt; Matrix exponential spatial lag model:
+#&gt; Alpha: -0.64302, standard error: 0.1043
+#&gt;     z-value: -6.1649, p-value: 7.0511e-10
+#&gt; LR test value: 48.296, p-value: 3.6644e-12
+#&gt; Implied rho: 0.4742995 
+#&gt; </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;               Estimate Std. Error   t value     Pr(&gt;|t|)
+#&gt; (Intercept)  1.5463761 0.21451319  7.208770 1.038762e-11
+#&gt; PATIO        0.2582874 0.08689079  2.972552 3.303312e-03
+#&gt; log(AGE)    -0.1481738 0.03525174 -4.203305 3.912250e-05
+#&gt; log(SQFT)    0.3009659 0.07159771  4.203569 3.908038e-05</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/system.time.html'>system.time</a></span><span class='op'>(</span><span class='va'>obj2a</span> <span class='op'>&lt;-</span> <span class='fu'>lagmess</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>PRICE</span><span class='op'>)</span> <span class='op'>~</span> <span class='va'>PATIO</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>AGE</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>SQFT</span><span class='op'>)</span>, data<span class='op'>=</span><span class='va'>baltimore</span>, listw<span class='op'>=</span><span class='va'>lw</span>,
+ use_expm<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;    user  system elapsed 
+#&gt;   0.624   0.000   0.627 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>obj2a</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Matrix exponential spatial lag model:
 #&gt; (calculated with expm)
 #&gt; 
 #&gt; Call:
@@ -319,58 +339,61 @@ neighbours, if FALSE assign NA - causing <code>lagmess()</code> to terminate wit
 #&gt; 
 #&gt; Residuals:
 #&gt;       Min        1Q    Median        3Q       Max 
-#&gt; -2.026015 -0.141654  0.050901  0.224067  1.072942 
+#&gt; -2.026722 -0.141191  0.050831  0.223830  1.073114 
 #&gt; 
 #&gt; Coefficients:
 #&gt;              Estimate Std. Error t value  Pr(&gt;|t|)
-#&gt; (Intercept)  1.549087   0.214465  7.2230 9.553e-12
-#&gt; PATIO        0.259322   0.086871  2.9851  0.003176
-#&gt; log(AGE)    -0.148169   0.035244 -4.2041 3.899e-05
-#&gt; log(SQFT)    0.300203   0.071582  4.1939 4.066e-05
+#&gt; (Intercept)  1.546376   0.214513  7.2088 1.039e-11
+#&gt; PATIO        0.258287   0.086891  2.9726  0.003303
+#&gt; log(AGE)    -0.148174   0.035252 -4.2033 3.912e-05
+#&gt; log(SQFT)    0.300966   0.071598  4.2036 3.908e-05
 #&gt; 
-#&gt; Residual standard error: 0.41648 on 207 degrees of freedom
-#&gt; Multiple R-squared:  0.22384,	Adjusted R-squared:  0.21259 
-#&gt; F-statistic: 19.899 on 3 and 207 DF,  p-value: 2.2574e-11
+#&gt; Residual standard error: 0.41658 on 207 degrees of freedom
+#&gt; Multiple R-squared:  0.22373,	Adjusted R-squared:  0.21248 
+#&gt; F-statistic: 19.887 on 3 and 207 DF,  p-value: 2.2881e-11
 #&gt; 
-#&gt; Alpha: -0.64248, standard error: 0.10411
-#&gt;     z-value: -6.1711, p-value: 6.7823e-10
-#&gt; LR test value: 48.392, p-value: 3.4905e-12
-#&gt; Implied rho: 0.474015 
-#&gt; </div><div class='input'><span class='no'>obj3</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ML_models.html'>lagsarlm</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>log</a></span>(<span class='no'>PRICE</span>) ~ <span class='no'>PATIO</span> + <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>log</a></span>(<span class='no'>AGE</span>) + <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>log</a></span>(<span class='no'>SQFT</span>), <span class='kw'>data</span><span class='kw'>=</span><span class='no'>baltimore</span>, <span class='kw'>listw</span><span class='kw'>=</span><span class='no'>lw</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>obj3</span>)</div><div class='output co'>#&gt; 
+#&gt; Alpha: -0.64302, standard error: 0.1043
+#&gt;     z-value: -6.1649, p-value: 7.0511e-10
+#&gt; LR test value: 48.296, p-value: 3.6644e-12
+#&gt; Implied rho: 0.4742995 
+#&gt; </div><div class='input'><span class='va'>obj3</span> <span class='op'>&lt;-</span> <span class='fu'><a href='ML_models.html'>lagsarlm</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>PRICE</span><span class='op'>)</span> <span class='op'>~</span> <span class='va'>PATIO</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>AGE</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>SQFT</span><span class='op'>)</span>, data<span class='op'>=</span><span class='va'>baltimore</span>, listw<span class='op'>=</span><span class='va'>lw</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>obj3</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; Call:lagsarlm(formula = log(PRICE) ~ PATIO + log(AGE) + log(SQFT), 
 #&gt;     data = baltimore, listw = lw)
 #&gt; 
 #&gt; Residuals:
 #&gt;       Min        1Q    Median        3Q       Max 
-#&gt; -1.968546 -0.147936  0.042912  0.199676  1.076176 
+#&gt; -1.969554 -0.147514  0.042581  0.199567  1.076181 
 #&gt; 
 #&gt; Type: lag 
 #&gt; Coefficients: (asymptotic standard errors) 
 #&gt;              Estimate Std. Error z value  Pr(&gt;|z|)
-#&gt; (Intercept)  1.257955   0.320454  3.9255 8.653e-05
-#&gt; PATIO        0.244879   0.083432  2.9351 0.0033348
-#&gt; log(AGE)    -0.131946   0.034502 -3.8243 0.0001311
-#&gt; log(SQFT)    0.278307   0.070246  3.9619 7.437e-05
+#&gt; (Intercept)  1.255885   0.320679  3.9163 8.991e-05
+#&gt; PATIO        0.244225   0.083448  2.9267 0.0034262
+#&gt; log(AGE)    -0.131947   0.034510 -3.8235 0.0001316
+#&gt; log(SQFT)    0.278888   0.070259  3.9694 7.205e-05
 #&gt; 
-#&gt; Rho: 0.5574, LR test value: 52.786, p-value: 3.7192e-13
-#&gt; Asymptotic standard error: 0.072691
-#&gt;     z-value: 7.6681, p-value: 1.7542e-14
-#&gt; Wald statistic: 58.8, p-value: 1.7431e-14
+#&gt; Rho: 0.55765, LR test value: 52.661, p-value: 3.9635e-13
+#&gt; Asymptotic standard error: 0.072749
+#&gt;     z-value: 7.6653, p-value: 1.7764e-14
+#&gt; Wald statistic: 58.757, p-value: 1.7875e-14
 #&gt; 
-#&gt; Log likelihood: -110.3622 for lag model
-#&gt; ML residual variance (sigma squared): 0.15883, (sigma: 0.39853)
+#&gt; Log likelihood: -110.4248 for lag model
+#&gt; ML residual variance (sigma squared): 0.1589, (sigma: 0.39862)
 #&gt; Number of observations: 211 
 #&gt; Number of parameters estimated: 6 
-#&gt; AIC: 232.72, (AIC for lm: 283.51)
+#&gt; AIC: 232.85, (AIC for lm: 283.51)
 #&gt; LM test for residual autocorrelation
-#&gt; test value: 8.8042, p-value: 0.0030054
-#&gt; </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='no'>boston</span>, <span class='kw'>package</span><span class='kw'>=</span><span class='st'>"spData"</span>)
-<span class='no'>lw</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>spdep</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/spdep/topics/nb2listw'>nb2listw</a></span>(<span class='no'>boston.soi</span>)
-<span class='no'>gp2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ML_models.html'>lagsarlm</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>log</a></span>(<span class='no'>CMEDV</span>) ~ <span class='no'>CRIM</span> + <span class='no'>ZN</span> + <span class='no'>INDUS</span> + <span class='no'>CHAS</span> + <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/AsIs'>I</a></span>(<span class='no'>NOX</span>^<span class='fl'>2</span>) + <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/AsIs'>I</a></span>(<span class='no'>RM</span>^<span class='fl'>2</span>)
- +  <span class='no'>AGE</span> + <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>log</a></span>(<span class='no'>DIS</span>) + <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>log</a></span>(<span class='no'>RAD</span>) + <span class='no'>TAX</span> + <span class='no'>PTRATIO</span> + <span class='no'>B</span> + <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>log</a></span>(<span class='no'>LSTAT</span>),
- <span class='kw'>data</span><span class='kw'>=</span><span class='no'>boston.c</span>, <span class='no'>lw</span>, <span class='kw'>method</span><span class='kw'>=</span><span class='st'>"Matrix"</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>gp2</span>)</div><div class='output co'>#&gt; 
+#&gt; test value: 8.7942, p-value: 0.0030219
+#&gt; </div><div class='input'><span class='co'># \donttest{</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>boston</span>, package<span class='op'>=</span><span class='st'>"spData"</span><span class='op'>)</span>
+<span class='va'>lw</span> <span class='op'>&lt;-</span> <span class='fu'>spdep</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/spdep/man/nb2listw.html'>nb2listw</a></span><span class='op'>(</span><span class='va'>boston.soi</span><span class='op'>)</span>
+<span class='va'>gp2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='ML_models.html'>lagsarlm</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>CMEDV</span><span class='op'>)</span> <span class='op'>~</span> <span class='va'>CRIM</span> <span class='op'>+</span> <span class='va'>ZN</span> <span class='op'>+</span> <span class='va'>INDUS</span> <span class='op'>+</span> <span class='va'>CHAS</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/base/AsIs.html'>I</a></span><span class='op'>(</span><span class='va'>NOX</span><span class='op'>^</span><span class='fl'>2</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/base/AsIs.html'>I</a></span><span class='op'>(</span><span class='va'>RM</span><span class='op'>^</span><span class='fl'>2</span><span class='op'>)</span>
+ <span class='op'>+</span>  <span class='va'>AGE</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>DIS</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>RAD</span><span class='op'>)</span> <span class='op'>+</span> <span class='va'>TAX</span> <span class='op'>+</span> <span class='va'>PTRATIO</span> <span class='op'>+</span> <span class='va'>B</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>LSTAT</span><span class='op'>)</span>,
+ data<span class='op'>=</span><span class='va'>boston.c</span>, <span class='va'>lw</span>, method<span class='op'>=</span><span class='st'>"Matrix"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>gp2</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; Call:lagsarlm(formula = log(CMEDV) ~ CRIM + ZN + INDUS + CHAS + I(NOX^2) + 
 #&gt;     I(RM^2) + AGE + log(DIS) + log(RAD) + TAX + PTRATIO + B + 
 #&gt;     log(LSTAT), data = boston.c, listw = lw, method = "Matrix")
@@ -409,10 +432,11 @@ neighbours, if FALSE assign NA - causing <code>lagmess()</code> to terminate wit
 #&gt; AIC: -496.02, (AIC for lm: -283.96)
 #&gt; LM test for residual autocorrelation
 #&gt; test value: 10.74, p-value: 0.0010486
-#&gt; </div><div class='input'><span class='no'>gp2a</span> <span class='kw'>&lt;-</span> <span class='fu'>lagmess</span>(<span class='no'>CMEDV</span> ~ <span class='no'>CRIM</span> + <span class='no'>ZN</span> + <span class='no'>INDUS</span> + <span class='no'>CHAS</span> + <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/AsIs'>I</a></span>(<span class='no'>NOX</span>^<span class='fl'>2</span>) + <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/AsIs'>I</a></span>(<span class='no'>RM</span>^<span class='fl'>2</span>)
- +  <span class='no'>AGE</span> + <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>log</a></span>(<span class='no'>DIS</span>) + <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>log</a></span>(<span class='no'>RAD</span>) + <span class='no'>TAX</span> + <span class='no'>PTRATIO</span> + <span class='no'>B</span> + <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>log</a></span>(<span class='no'>LSTAT</span>),
- <span class='kw'>data</span><span class='kw'>=</span><span class='no'>boston.c</span>, <span class='no'>lw</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>gp2a</span>)</div><div class='output co'>#&gt; Matrix exponential spatial lag model:
+#&gt; </div><div class='input'><span class='va'>gp2a</span> <span class='op'>&lt;-</span> <span class='fu'>lagmess</span><span class='op'>(</span><span class='va'>CMEDV</span> <span class='op'>~</span> <span class='va'>CRIM</span> <span class='op'>+</span> <span class='va'>ZN</span> <span class='op'>+</span> <span class='va'>INDUS</span> <span class='op'>+</span> <span class='va'>CHAS</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/base/AsIs.html'>I</a></span><span class='op'>(</span><span class='va'>NOX</span><span class='op'>^</span><span class='fl'>2</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/base/AsIs.html'>I</a></span><span class='op'>(</span><span class='va'>RM</span><span class='op'>^</span><span class='fl'>2</span><span class='op'>)</span>
+ <span class='op'>+</span>  <span class='va'>AGE</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>DIS</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>RAD</span><span class='op'>)</span> <span class='op'>+</span> <span class='va'>TAX</span> <span class='op'>+</span> <span class='va'>PTRATIO</span> <span class='op'>+</span> <span class='va'>B</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>LSTAT</span><span class='op'>)</span>,
+ data<span class='op'>=</span><span class='va'>boston.c</span>, <span class='va'>lw</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>gp2a</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Matrix exponential spatial lag model:
 #&gt; 
 #&gt; Call:
 #&gt; lagmess(formula = CMEDV ~ CRIM + ZN + INDUS + CHAS + I(NOX^2) + 
@@ -448,28 +472,16 @@ neighbours, if FALSE assign NA - causing <code>lagmess()</code> to terminate wit
 #&gt;     z-value: -10.737, p-value: &lt; 2.22e-16
 #&gt; LR test value: 121.4, p-value: &lt; 2.22e-16
 #&gt; Implied rho: 0.3387434 
-#&gt; </div></pre>
+#&gt; </div><div class='input'><span class='co'># }</span>
+</div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#details">Details</a></li>
-
-      <li><a href="#value">Value</a></li>
-
-      <li><a href="#references">References</a></li>
-
-      <li><a href="#see-also">See also</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
-    <h2>Author</h2>
-    <p>Roger Bivand <a href='mailto:Roger.Bivand@nhh.no'>Roger.Bivand@nhh.no</a> and Eric Blankmeyer</p>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -477,13 +489,16 @@ neighbours, if FALSE assign NA - causing <code>lagmess()</code> to terminate wit
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

@@ -8,21 +8,29 @@
 
 <title>MCMC sample from fitted spatial regression — MCMCsamp • spatialreg</title>
 
+
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -30,10 +38,10 @@
 
 
 
-<meta property="og:title" content="MCMC sample from fitted spatial regression — MCMCsamp" />
 
+<meta property="og:title" content="MCMC sample from fitted spatial regression — MCMCsamp" />
 <meta property="og:description" content="The MCMCsamp method uses rwmetrop, a random walk Metropolis algorithm, from LearnBayes to make MCMC samples from fitted maximum likelihood spatial regression models." />
-<meta name="twitter:card" content="summary" />
+
 
 
 
@@ -47,9 +55,10 @@
 <![endif]-->
 
 
+
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -63,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">spatialreg</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1-7</span>
       </span>
     </div>
 
@@ -71,7 +80,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -93,12 +102,14 @@
     </li>
   </ul>
 </li>
+<li>
+  <a href="../news/index.html">Changelog</a>
+</li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/r-spatial/spatialreg">
-    <span class="fa fa-github fa-lg"></span>
+  <a href="https://github.com/r-spatial/spatialreg/">
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -109,6 +120,7 @@
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -120,19 +132,17 @@
     </div>
 
     <div class="ref-description">
-    
-    <p>The <code>MCMCsamp</code> method uses <code><a href='https://www.rdocumentation.org/packages/LearnBayes/topics/rwmetrop'>rwmetrop</a></code>, a random walk Metropolis algorithm, from <span class="pkg">LearnBayes</span> to make MCMC samples from fitted maximum likelihood spatial regression models.</p>
-    
+    <p>The <code>MCMCsamp</code> method uses <code><a href='https://rdrr.io/pkg/LearnBayes/man/rwmetrop.html'>rwmetrop</a></code>, a random walk Metropolis algorithm, from <span class="pkg">LearnBayes</span> to make MCMC samples from fitted maximum likelihood spatial regression models.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>MCMCsamp</span>(<span class='no'>object</span>, <span class='kw'>mcmc</span> <span class='kw'>=</span> <span class='fl'>1L</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)
-<span class='co'># S3 method for spautolm</span>
-<span class='fu'>MCMCsamp</span>(<span class='no'>object</span>, <span class='kw'>mcmc</span> <span class='kw'>=</span> <span class='fl'>1L</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>,
- <span class='kw'>burnin</span> <span class='kw'>=</span> <span class='fl'>0L</span>, <span class='kw'>scale</span><span class='kw'>=</span><span class='fl'>1</span>, <span class='no'>listw</span>, <span class='kw'>control</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>())
-<span class='co'># S3 method for sarlm</span>
-<span class='fu'>MCMCsamp</span>(<span class='no'>object</span>, <span class='kw'>mcmc</span> <span class='kw'>=</span> <span class='fl'>1L</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>,
-    <span class='kw'>burnin</span><span class='kw'>=</span><span class='fl'>0L</span>, <span class='kw'>scale</span><span class='kw'>=</span><span class='fl'>1</span>, <span class='no'>listw</span>, <span class='kw'>listw2</span><span class='kw'>=</span><span class='kw'>NULL</span>, <span class='kw'>control</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>())</pre>
-    
+    <pre class="usage"><span class='fu'>MCMCsamp</span><span class='op'>(</span><span class='va'>object</span>, mcmc <span class='op'>=</span> <span class='fl'>1L</span>, verbose <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span><span class='op'>)</span>
+<span class='co'># S3 method for Spautolm</span>
+<span class='fu'>MCMCsamp</span><span class='op'>(</span><span class='va'>object</span>, mcmc <span class='op'>=</span> <span class='fl'>1L</span>, verbose <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span>,
+ burnin <span class='op'>=</span> <span class='fl'>0L</span>, scale<span class='op'>=</span><span class='fl'>1</span>, <span class='va'>listw</span>, control <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+<span class='co'># S3 method for Sarlm</span>
+<span class='fu'>MCMCsamp</span><span class='op'>(</span><span class='va'>object</span>, mcmc <span class='op'>=</span> <span class='fl'>1L</span>, verbose <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span>,
+    burnin<span class='op'>=</span><span class='fl'>0L</span>, scale<span class='op'>=</span><span class='fl'>1</span>, <span class='va'>listw</span>, listw2<span class='op'>=</span><span class='cn'>NULL</span>, control<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -149,7 +159,7 @@
       <td><p>default NULL, use global option value; if TRUE, reports progress</p></td>
     </tr>
     <tr>
-      <th>&#8230;</th>
+      <th>...</th>
       <td><p>Arguments passed through</p></td>
     </tr>
     <tr>
@@ -169,37 +179,38 @@
       <td><p>list of extra control arguments - see <code><a href='spautolm.html'>spautolm</a></code></p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>An object of class &#8220;mcmc&#8221; suited to <span class="pkg">coda</span>, with attributes: &#8220;accept&#8221; acceptance rate; &#8220;type&#8221; input ML fitted model type &#8220;SAR&#8221;, &#8220;CAR&#8221;, &#8220;SMA&#8221;, &#8220;lag&#8221;, &#8220;mixed&#8221;, &#8220;error&#8221;, &#8220;sac&#8221;, &#8220;sacmixed&#8221;; &#8220;timings&#8221; run times</p>
-    
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
     <p>If the acceptance rate is below 0.05, a warning will be issued; consider increasing mcmc.</p>
-    
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>Jim Albert (2007) Bayesian Computation with R, Springer, New York, pp. 104-105.</p>
-    
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Roger Bivand <a href='mailto:Roger.Bivand@nhh.no'>Roger.Bivand@nhh.no</a></p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='https://www.rdocumentation.org/packages/LearnBayes/topics/rwmetrop'>rwmetrop</a></code>, <code><a href='spautolm.html'>spautolm</a></code>, <code><a href='ML_models.html'>lagsarlm</a></code>, <code><a href='ML_models.html'>errorsarlm</a></code>, <code><a href='ML_models.html'>sacsarlm</a></code></p></div>
-    
+    <div class='dont-index'><p><code><a href='https://rdrr.io/pkg/LearnBayes/man/rwmetrop.html'>rwmetrop</a></code>, <code><a href='spautolm.html'>spautolm</a></code>, <code><a href='ML_models.html'>lagsarlm</a></code>, <code><a href='ML_models.html'>errorsarlm</a></code>, <code><a href='ML_models.html'>sacsarlm</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>require</a></span>(<span class='st'>"sf"</span>, <span class='kw'>quietly</span><span class='kw'>=</span><span class='fl'>TRUE</span>)
-<span class='no'>nydata</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/sf/topics/st_read'>st_read</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/system.file'>system.file</a></span>(<span class='st'>"shapes/NY8_bna_utm18.gpkg"</span>, <span class='kw'>package</span><span class='kw'>=</span><span class='st'>"spData"</span>)[<span class='fl'>1</span>], <span class='kw'>quiet</span><span class='kw'>=</span><span class='fl'>TRUE</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/message'>suppressMessages</a></span>(<span class='no'>nyadjmat</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/matrix'>as.matrix</a></span>(<span class='kw pkg'>foreign</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/foreign/topics/read.dbf'>read.dbf</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/system.file'>system.file</a></span>(
- <span class='st'>"misc/nyadjwts.dbf"</span>, <span class='kw'>package</span><span class='kw'>=</span><span class='st'>"spData"</span>)[<span class='fl'>1</span>])[-<span class='fl'>1</span>]))
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/message'>suppressMessages</a></span>(<span class='no'>ID</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/character'>as.character</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/names'>names</a></span>(<span class='kw pkg'>foreign</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/foreign/topics/read.dbf'>read.dbf</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/system.file'>system.file</a></span>(
- <span class='st'>"misc/nyadjwts.dbf"</span>, <span class='kw'>package</span><span class='kw'>=</span><span class='st'>"spData"</span>)[<span class='fl'>1</span>]))[-<span class='fl'>1</span>]))
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/identical'>identical</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/substr'>substring</a></span>(<span class='no'>ID</span>, <span class='fl'>2</span>, <span class='fl'>10</span>), <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/substr'>substring</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/character'>as.character</a></span>(<span class='no'>nydata</span>$<span class='no'>AREAKEY</span>), <span class='fl'>2</span>, <span class='fl'>10</span>))</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='co'>#require("spdep", quietly=TRUE)</span>
-<span class='no'>nyadjlw</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>spdep</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/spdep/topics/mat2listw'>mat2listw</a></span>(<span class='no'>nyadjmat</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/character'>as.character</a></span>(<span class='no'>nydata</span>$<span class='no'>AREAKEY</span>))
-<span class='no'>listw_NY</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>spdep</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/spdep/topics/nb2listw'>nb2listw</a></span>(<span class='no'>nyadjlw</span>$<span class='no'>neighbours</span>, <span class='kw'>style</span><span class='kw'>=</span><span class='st'>"B"</span>)
-<span class='no'>esar1f</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='spautolm.html'>spautolm</a></span>(<span class='no'>Z</span> ~ <span class='no'>PEXPOSURE</span> + <span class='no'>PCTAGE65P</span> + <span class='no'>PCTOWNHOME</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>nydata</span>,
- <span class='kw'>listw</span><span class='kw'>=</span><span class='no'>listw_NY</span>, <span class='kw'>family</span><span class='kw'>=</span><span class='st'>"SAR"</span>, <span class='kw'>method</span><span class='kw'>=</span><span class='st'>"eigen"</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>esar1f</span>)</div><div class='output co'>#&gt; 
+    <pre class="examples"><div class='input'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>require</a></span><span class='op'>(</span><span class='st'><a href='https://r-spatial.github.io/sf/'>"sf"</a></span>, quietly<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>
+<span class='va'>nydata</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://r-spatial.github.io/sf/reference/st_read.html'>st_read</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"shapes/NY8_bna_utm18.gpkg"</span>, package<span class='op'>=</span><span class='st'>"spData"</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span>, quiet<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/message.html'>suppressMessages</a></span><span class='op'>(</span><span class='va'>nyadjmat</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>as.matrix</a></span><span class='op'>(</span><span class='fu'>foreign</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/foreign/man/read.dbf.html'>read.dbf</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span>
+ <span class='st'>"misc/nyadjwts.dbf"</span>, package<span class='op'>=</span><span class='st'>"spData"</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>)</span><span class='op'>[</span><span class='op'>-</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/message.html'>suppressMessages</a></span><span class='op'>(</span><span class='va'>ID</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/character.html'>as.character</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='fu'>foreign</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/foreign/man/read.dbf.html'>read.dbf</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span>
+ <span class='st'>"misc/nyadjwts.dbf"</span>, package<span class='op'>=</span><span class='st'>"spData"</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>)</span><span class='op'>)</span><span class='op'>[</span><span class='op'>-</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/identical.html'>identical</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/substr.html'>substring</a></span><span class='op'>(</span><span class='va'>ID</span>, <span class='fl'>2</span>, <span class='fl'>10</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/substr.html'>substring</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/character.html'>as.character</a></span><span class='op'>(</span><span class='va'>nydata</span><span class='op'>$</span><span class='va'>AREAKEY</span><span class='op'>)</span>, <span class='fl'>2</span>, <span class='fl'>10</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='co'>#require("spdep", quietly=TRUE)</span>
+<span class='va'>nyadjlw</span> <span class='op'>&lt;-</span> <span class='fu'>spdep</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/spdep/man/mat2listw.html'>mat2listw</a></span><span class='op'>(</span><span class='va'>nyadjmat</span>, <span class='fu'><a href='https://rdrr.io/r/base/character.html'>as.character</a></span><span class='op'>(</span><span class='va'>nydata</span><span class='op'>$</span><span class='va'>AREAKEY</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>listw_NY</span> <span class='op'>&lt;-</span> <span class='fu'>spdep</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/spdep/man/nb2listw.html'>nb2listw</a></span><span class='op'>(</span><span class='va'>nyadjlw</span><span class='op'>$</span><span class='va'>neighbours</span>, style<span class='op'>=</span><span class='st'>"B"</span><span class='op'>)</span>
+<span class='va'>esar1f</span> <span class='op'>&lt;-</span> <span class='fu'><a href='spautolm.html'>spautolm</a></span><span class='op'>(</span><span class='va'>Z</span> <span class='op'>~</span> <span class='va'>PEXPOSURE</span> <span class='op'>+</span> <span class='va'>PCTAGE65P</span> <span class='op'>+</span> <span class='va'>PCTOWNHOME</span>, data<span class='op'>=</span><span class='va'>nydata</span>,
+ listw<span class='op'>=</span><span class='va'>listw_NY</span>, family<span class='op'>=</span><span class='st'>"SAR"</span>, method<span class='op'>=</span><span class='st'>"eigen"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>esar1f</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; Call: 
 #&gt; spautolm(formula = Z ~ PEXPOSURE + PCTAGE65P + PCTOWNHOME, data = nydata, 
 #&gt;     listw = listw_NY, family = "SAR", method = "eigen")
@@ -216,15 +227,16 @@
 #&gt; PCTOWNHOME  -0.419890   0.191329 -2.1946 0.0281930
 #&gt; 
 #&gt; Lambda: 0.040487 LR test value: 5.2438 p-value: 0.022026 
-#&gt; Numerical Hessian standard error of lambda: 0.017199 
+#&gt; Numerical Hessian standard error of lambda: 0.017209 
 #&gt; 
 #&gt; Log likelihood: -276.1069 
 #&gt; ML residual variance (sigma squared): 0.41388, (sigma: 0.64333)
 #&gt; Number of observations: 281 
 #&gt; Number of parameters estimated: 6 
 #&gt; AIC: 564.21
-#&gt; </div><div class='input'><span class='no'>res</span> <span class='kw'>&lt;-</span> <span class='fu'>MCMCsamp</span>(<span class='no'>esar1f</span>, <span class='kw'>mcmc</span><span class='kw'>=</span><span class='fl'>1000</span>, <span class='kw'>burnin</span><span class='kw'>=</span><span class='fl'>200</span>, <span class='kw'>listw</span><span class='kw'>=</span><span class='no'>listw_NY</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; 
+#&gt; </div><div class='input'><span class='va'>res</span> <span class='op'>&lt;-</span> <span class='fu'>MCMCsamp</span><span class='op'>(</span><span class='va'>esar1f</span>, mcmc<span class='op'>=</span><span class='fl'>1000</span>, burnin<span class='op'>=</span><span class='fl'>200</span>, listw<span class='op'>=</span><span class='va'>listw_NY</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; Iterations = 1:1000
 #&gt; Thinning interval = 1 
 #&gt; Number of chains = 1 
@@ -234,23 +246,25 @@
 #&gt;    plus standard error of the mean:
 #&gt; 
 #&gt;                 Mean      SD  Naive SE Time-series SE
-#&gt; lambda       0.04312 0.01737 0.0005493       0.002192
-#&gt; (Intercept) -0.64877 0.18228 0.0057643       0.023222
-#&gt; PEXPOSURE    0.08481 0.04905 0.0015512       0.006309
-#&gt; PCTAGE65P    3.78227 0.58092 0.0183702       0.066349
-#&gt; PCTOWNHOME  -0.39614 0.22104 0.0069899       0.030286
+#&gt; lambda       0.04312 0.01738 0.0005496       0.002193
+#&gt; (Intercept) -0.64883 0.18254 0.0057724       0.023256
+#&gt; PEXPOSURE    0.08483 0.04913 0.0015537       0.006320
+#&gt; PCTAGE65P    3.78232 0.58084 0.0183678       0.066337
+#&gt; PCTOWNHOME  -0.39612 0.22118 0.0069943       0.030304
 #&gt; 
 #&gt; 2. Quantiles for each variable:
 #&gt; 
-#&gt;                  2.5%      25%      50%     75%     97.5%
-#&gt; lambda       0.008407  0.03208  0.04214  0.0550  0.076114
-#&gt; (Intercept) -1.039136 -0.77560 -0.64408 -0.5121 -0.326820
-#&gt; PEXPOSURE   -0.004862  0.05362  0.08144  0.1151  0.202193
-#&gt; PCTAGE65P    2.626822  3.39970  3.73466  4.1837  4.961710
-#&gt; PCTOWNHOME  -0.819491 -0.56238 -0.39279 -0.2266  0.004246
-#&gt; </div><div class='input'><span class='no'>esar1fw</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='spautolm.html'>spautolm</a></span>(<span class='no'>Z</span> ~ <span class='no'>PEXPOSURE</span> + <span class='no'>PCTAGE65P</span> + <span class='no'>PCTOWNHOME</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>nydata</span>,
- <span class='kw'>listw</span><span class='kw'>=</span><span class='no'>listw_NY</span>, <span class='kw'>weights</span><span class='kw'>=</span><span class='no'>POP8</span>, <span class='kw'>family</span><span class='kw'>=</span><span class='st'>"SAR"</span>, <span class='kw'>method</span><span class='kw'>=</span><span class='st'>"eigen"</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>esar1fw</span>)</div><div class='output co'>#&gt; 
+#&gt;                  2.5%      25%      50%      75%     97.5%
+#&gt; lambda       0.008390  0.03207  0.04215  0.05501  0.076133
+#&gt; (Intercept) -1.039676 -0.77587 -0.64419 -0.51195 -0.326557
+#&gt; PEXPOSURE   -0.004963  0.05359  0.08142  0.11521  0.202348
+#&gt; PCTAGE65P    2.627258  3.39980  3.73455  4.18334  4.962310
+#&gt; PCTOWNHOME  -0.819651 -0.56246 -0.39274 -0.22634  0.004321
+#&gt; </div><div class='input'><span class='co'># \dontrun{</span>
+<span class='va'>esar1fw</span> <span class='op'>&lt;-</span> <span class='fu'><a href='spautolm.html'>spautolm</a></span><span class='op'>(</span><span class='va'>Z</span> <span class='op'>~</span> <span class='va'>PEXPOSURE</span> <span class='op'>+</span> <span class='va'>PCTAGE65P</span> <span class='op'>+</span> <span class='va'>PCTOWNHOME</span>, data<span class='op'>=</span><span class='va'>nydata</span>,
+ listw<span class='op'>=</span><span class='va'>listw_NY</span>, weights<span class='op'>=</span><span class='va'>POP8</span>, family<span class='op'>=</span><span class='st'>"SAR"</span>, method<span class='op'>=</span><span class='st'>"eigen"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>esar1fw</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; Call: 
 #&gt; spautolm(formula = Z ~ PEXPOSURE + PCTAGE65P + PCTOWNHOME, data = nydata, 
 #&gt;     listw = listw_NY, weights = POP8, family = "SAR", method = "eigen")
@@ -274,8 +288,9 @@
 #&gt; Number of observations: 281 
 #&gt; Number of parameters estimated: 6 
 #&gt; AIC: 515.2
-#&gt; </div><div class='input'><span class='no'>res</span> <span class='kw'>&lt;-</span> <span class='fu'>MCMCsamp</span>(<span class='no'>esar1fw</span>, <span class='kw'>mcmc</span><span class='kw'>=</span><span class='fl'>5000</span>, <span class='kw'>burnin</span><span class='kw'>=</span><span class='fl'>500</span>, <span class='kw'>listw</span><span class='kw'>=</span><span class='no'>listw_NY</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; 
+#&gt; </div><div class='input'><span class='va'>res</span> <span class='op'>&lt;-</span> <span class='fu'>MCMCsamp</span><span class='op'>(</span><span class='va'>esar1fw</span>, mcmc<span class='op'>=</span><span class='fl'>5000</span>, burnin<span class='op'>=</span><span class='fl'>500</span>, listw<span class='op'>=</span><span class='va'>listw_NY</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; Iterations = 1:5000
 #&gt; Thinning interval = 1 
 #&gt; Number of chains = 1 
@@ -299,9 +314,10 @@
 #&gt; PEXPOSURE    0.02468  0.06054  0.08122  0.10113  0.13929
 #&gt; PCTAGE65P    2.58222  3.40881  3.80753  4.22443  4.99183
 #&gt; PCTOWNHOME  -0.74173 -0.49840 -0.38546 -0.27256 -0.05256
-#&gt; </div><div class='input'><span class='no'>ecar1f</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='spautolm.html'>spautolm</a></span>(<span class='no'>Z</span> ~ <span class='no'>PEXPOSURE</span> + <span class='no'>PCTAGE65P</span> + <span class='no'>PCTOWNHOME</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>nydata</span>,
- <span class='kw'>listw</span><span class='kw'>=</span><span class='no'>listw_NY</span>, <span class='kw'>family</span><span class='kw'>=</span><span class='st'>"CAR"</span>, <span class='kw'>method</span><span class='kw'>=</span><span class='st'>"eigen"</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>ecar1f</span>)</div><div class='output co'>#&gt; 
+#&gt; </div><div class='input'><span class='va'>ecar1f</span> <span class='op'>&lt;-</span> <span class='fu'><a href='spautolm.html'>spautolm</a></span><span class='op'>(</span><span class='va'>Z</span> <span class='op'>~</span> <span class='va'>PEXPOSURE</span> <span class='op'>+</span> <span class='va'>PCTAGE65P</span> <span class='op'>+</span> <span class='va'>PCTOWNHOME</span>, data<span class='op'>=</span><span class='va'>nydata</span>,
+ listw<span class='op'>=</span><span class='va'>listw_NY</span>, family<span class='op'>=</span><span class='st'>"CAR"</span>, method<span class='op'>=</span><span class='st'>"eigen"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>ecar1f</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; Call: 
 #&gt; spautolm(formula = Z ~ PEXPOSURE + PCTAGE65P + PCTOWNHOME, data = nydata, 
 #&gt;     listw = listw_NY, family = "CAR", method = "eigen")
@@ -325,8 +341,9 @@
 #&gt; Number of observations: 281 
 #&gt; Number of parameters estimated: 6 
 #&gt; AIC: 563.66
-#&gt; </div><div class='input'><span class='no'>res</span> <span class='kw'>&lt;-</span> <span class='fu'>MCMCsamp</span>(<span class='no'>ecar1f</span>, <span class='kw'>mcmc</span><span class='kw'>=</span><span class='fl'>5000</span>, <span class='kw'>burnin</span><span class='kw'>=</span><span class='fl'>500</span>, <span class='kw'>listw</span><span class='kw'>=</span><span class='no'>listw_NY</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; 
+#&gt; </div><div class='input'><span class='va'>res</span> <span class='op'>&lt;-</span> <span class='fu'>MCMCsamp</span><span class='op'>(</span><span class='va'>ecar1f</span>, mcmc<span class='op'>=</span><span class='fl'>5000</span>, burnin<span class='op'>=</span><span class='fl'>500</span>, listw<span class='op'>=</span><span class='va'>listw_NY</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; Iterations = 1:5000
 #&gt; Thinning interval = 1 
 #&gt; Number of chains = 1 
@@ -350,9 +367,10 @@
 #&gt; PEXPOSURE   -0.008505  0.04925  0.07835  0.1125  0.1967
 #&gt; PCTAGE65P    2.400072  3.17780  3.65483  4.0905  4.9434
 #&gt; PCTOWNHOME  -0.761276 -0.51653 -0.37306 -0.2167  0.1509
-#&gt; </div><div class='input'><span class='no'>esar1fw</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='spautolm.html'>spautolm</a></span>(<span class='no'>Z</span> ~ <span class='no'>PEXPOSURE</span> + <span class='no'>PCTAGE65P</span> + <span class='no'>PCTOWNHOME</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>nydata</span>,
- <span class='kw'>listw</span><span class='kw'>=</span><span class='no'>listw_NY</span>, <span class='kw'>weights</span><span class='kw'>=</span><span class='no'>POP8</span>, <span class='kw'>family</span><span class='kw'>=</span><span class='st'>"SAR"</span>, <span class='kw'>method</span><span class='kw'>=</span><span class='st'>"eigen"</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>esar1fw</span>)</div><div class='output co'>#&gt; 
+#&gt; </div><div class='input'><span class='va'>esar1fw</span> <span class='op'>&lt;-</span> <span class='fu'><a href='spautolm.html'>spautolm</a></span><span class='op'>(</span><span class='va'>Z</span> <span class='op'>~</span> <span class='va'>PEXPOSURE</span> <span class='op'>+</span> <span class='va'>PCTAGE65P</span> <span class='op'>+</span> <span class='va'>PCTOWNHOME</span>, data<span class='op'>=</span><span class='va'>nydata</span>,
+ listw<span class='op'>=</span><span class='va'>listw_NY</span>, weights<span class='op'>=</span><span class='va'>POP8</span>, family<span class='op'>=</span><span class='st'>"SAR"</span>, method<span class='op'>=</span><span class='st'>"eigen"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>esar1fw</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; Call: 
 #&gt; spautolm(formula = Z ~ PEXPOSURE + PCTAGE65P + PCTOWNHOME, data = nydata, 
 #&gt;     listw = listw_NY, weights = POP8, family = "SAR", method = "eigen")
@@ -376,8 +394,9 @@
 #&gt; Number of observations: 281 
 #&gt; Number of parameters estimated: 6 
 #&gt; AIC: 515.2
-#&gt; </div><div class='input'><span class='no'>res</span> <span class='kw'>&lt;-</span> <span class='fu'>MCMCsamp</span>(<span class='no'>esar1fw</span>, <span class='kw'>mcmc</span><span class='kw'>=</span><span class='fl'>5000</span>, <span class='kw'>burnin</span><span class='kw'>=</span><span class='fl'>500</span>, <span class='kw'>listw</span><span class='kw'>=</span><span class='no'>listw_NY</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; 
+#&gt; </div><div class='input'><span class='va'>res</span> <span class='op'>&lt;-</span> <span class='fu'>MCMCsamp</span><span class='op'>(</span><span class='va'>esar1fw</span>, mcmc<span class='op'>=</span><span class='fl'>5000</span>, burnin<span class='op'>=</span><span class='fl'>500</span>, listw<span class='op'>=</span><span class='va'>listw_NY</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; Iterations = 1:5000
 #&gt; Thinning interval = 1 
 #&gt; Number of chains = 1 
@@ -401,9 +420,10 @@
 #&gt; PEXPOSURE    0.02333  0.057110  0.07880  0.10072  0.14261
 #&gt; PCTAGE65P    2.45223  3.345132  3.76443  4.20398  5.00203
 #&gt; PCTOWNHOME  -0.72512 -0.516227 -0.39431 -0.27794 -0.06093
-#&gt; </div><div class='input'><span class='no'>ecar1fw</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='spautolm.html'>spautolm</a></span>(<span class='no'>Z</span> ~ <span class='no'>PEXPOSURE</span> + <span class='no'>PCTAGE65P</span> + <span class='no'>PCTOWNHOME</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>nydata</span>,
- <span class='kw'>listw</span><span class='kw'>=</span><span class='no'>listw_NY</span>, <span class='kw'>weights</span><span class='kw'>=</span><span class='no'>POP8</span>, <span class='kw'>family</span><span class='kw'>=</span><span class='st'>"CAR"</span>, <span class='kw'>method</span><span class='kw'>=</span><span class='st'>"eigen"</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>ecar1fw</span>)</div><div class='output co'>#&gt; 
+#&gt; </div><div class='input'><span class='va'>ecar1fw</span> <span class='op'>&lt;-</span> <span class='fu'><a href='spautolm.html'>spautolm</a></span><span class='op'>(</span><span class='va'>Z</span> <span class='op'>~</span> <span class='va'>PEXPOSURE</span> <span class='op'>+</span> <span class='va'>PCTAGE65P</span> <span class='op'>+</span> <span class='va'>PCTOWNHOME</span>, data<span class='op'>=</span><span class='va'>nydata</span>,
+ listw<span class='op'>=</span><span class='va'>listw_NY</span>, weights<span class='op'>=</span><span class='va'>POP8</span>, family<span class='op'>=</span><span class='st'>"CAR"</span>, method<span class='op'>=</span><span class='st'>"eigen"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>ecar1fw</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; Call: 
 #&gt; spautolm(formula = Z ~ PEXPOSURE + PCTAGE65P + PCTOWNHOME, data = nydata, 
 #&gt;     listw = listw_NY, weights = POP8, family = "CAR", method = "eigen")
@@ -427,8 +447,9 @@
 #&gt; Number of observations: 281 
 #&gt; Number of parameters estimated: 6 
 #&gt; AIC: 515.14
-#&gt; </div><div class='input'><span class='no'>res</span> <span class='kw'>&lt;-</span> <span class='fu'>MCMCsamp</span>(<span class='no'>ecar1fw</span>, <span class='kw'>mcmc</span><span class='kw'>=</span><span class='fl'>5000</span>, <span class='kw'>burnin</span><span class='kw'>=</span><span class='fl'>500</span>, <span class='kw'>listw</span><span class='kw'>=</span><span class='no'>listw_NY</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; 
+#&gt; </div><div class='input'><span class='va'>res</span> <span class='op'>&lt;-</span> <span class='fu'>MCMCsamp</span><span class='op'>(</span><span class='va'>ecar1fw</span>, mcmc<span class='op'>=</span><span class='fl'>5000</span>, burnin<span class='op'>=</span><span class='fl'>500</span>, listw<span class='op'>=</span><span class='va'>listw_NY</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; Iterations = 1:5000
 #&gt; Thinning interval = 1 
 #&gt; Number of chains = 1 
@@ -452,9 +473,11 @@
 #&gt; PEXPOSURE    0.02537  0.063595  0.08462  0.10872  0.16356
 #&gt; PCTAGE65P    2.64044  3.356670  3.76310  4.13533  4.81561
 #&gt; PCTOWNHOME  -0.67554 -0.468450 -0.34818 -0.23379  0.00413
-#&gt; </div><div class='input'><span class='no'>esar0</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ML_models.html'>errorsarlm</a></span>(<span class='no'>Z</span> ~ <span class='no'>PEXPOSURE</span> + <span class='no'>PCTAGE65P</span> + <span class='no'>PCTOWNHOME</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>nydata</span>,
- <span class='kw'>listw</span><span class='kw'>=</span><span class='no'>listw_NY</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>esar0</span>)</div><div class='output co'>#&gt; 
+#&gt; </div><div class='input'><span class='co'># }</span>
+<span class='va'>esar0</span> <span class='op'>&lt;-</span> <span class='fu'><a href='ML_models.html'>errorsarlm</a></span><span class='op'>(</span><span class='va'>Z</span> <span class='op'>~</span> <span class='va'>PEXPOSURE</span> <span class='op'>+</span> <span class='va'>PCTAGE65P</span> <span class='op'>+</span> <span class='va'>PCTOWNHOME</span>, data<span class='op'>=</span><span class='va'>nydata</span>,
+ listw<span class='op'>=</span><span class='va'>listw_NY</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>esar0</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; Call:errorsarlm(formula = Z ~ PEXPOSURE + PCTAGE65P + PCTOWNHOME, 
 #&gt;     data = nydata, listw = listw_NY)
 #&gt; 
@@ -480,8 +503,9 @@
 #&gt; Number of observations: 281 
 #&gt; Number of parameters estimated: 6 
 #&gt; AIC: 564.21, (AIC for lm: 567.46)
-#&gt; </div><div class='input'><span class='no'>res</span> <span class='kw'>&lt;-</span> <span class='fu'>MCMCsamp</span>(<span class='no'>esar0</span>, <span class='kw'>mcmc</span><span class='kw'>=</span><span class='fl'>1000</span>, <span class='kw'>burnin</span><span class='kw'>=</span><span class='fl'>200</span>, <span class='kw'>listw</span><span class='kw'>=</span><span class='no'>listw_NY</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; 
+#&gt; </div><div class='input'><span class='va'>res</span> <span class='op'>&lt;-</span> <span class='fu'>MCMCsamp</span><span class='op'>(</span><span class='va'>esar0</span>, mcmc<span class='op'>=</span><span class='fl'>1000</span>, burnin<span class='op'>=</span><span class='fl'>200</span>, listw<span class='op'>=</span><span class='va'>listw_NY</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; Iterations = 1:1000
 #&gt; Thinning interval = 1 
 #&gt; Number of chains = 1 
@@ -505,9 +529,11 @@
 #&gt; PEXPOSURE   -0.0004135  0.04738  0.07927  0.11564  0.20607
 #&gt; PCTAGE65P    2.5911599  3.20769  3.63005  4.09097  4.74100
 #&gt; PCTOWNHOME  -0.8037868 -0.54136 -0.35322 -0.20277  0.17058
-#&gt; </div><div class='input'><span class='no'>esar0w</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ML_models.html'>errorsarlm</a></span>(<span class='no'>Z</span> ~ <span class='no'>PEXPOSURE</span> + <span class='no'>PCTAGE65P</span> + <span class='no'>PCTOWNHOME</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>nydata</span>,
- <span class='kw'>listw</span><span class='kw'>=</span><span class='no'>listw_NY</span>, <span class='kw'>weights</span><span class='kw'>=</span><span class='no'>POP8</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>esar0</span>)</div><div class='output co'>#&gt; 
+#&gt; </div><div class='input'><span class='co'># \dontrun{</span>
+<span class='va'>esar0w</span> <span class='op'>&lt;-</span> <span class='fu'><a href='ML_models.html'>errorsarlm</a></span><span class='op'>(</span><span class='va'>Z</span> <span class='op'>~</span> <span class='va'>PEXPOSURE</span> <span class='op'>+</span> <span class='va'>PCTAGE65P</span> <span class='op'>+</span> <span class='va'>PCTOWNHOME</span>, data<span class='op'>=</span><span class='va'>nydata</span>,
+ listw<span class='op'>=</span><span class='va'>listw_NY</span>, weights<span class='op'>=</span><span class='va'>POP8</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>esar0</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; Call:errorsarlm(formula = Z ~ PEXPOSURE + PCTAGE65P + PCTOWNHOME, 
 #&gt;     data = nydata, listw = listw_NY)
 #&gt; 
@@ -533,8 +559,9 @@
 #&gt; Number of observations: 281 
 #&gt; Number of parameters estimated: 6 
 #&gt; AIC: 564.21, (AIC for lm: 567.46)
-#&gt; </div><div class='input'><span class='no'>res</span> <span class='kw'>&lt;-</span> <span class='fu'>MCMCsamp</span>(<span class='no'>esar0w</span>, <span class='kw'>mcmc</span><span class='kw'>=</span><span class='fl'>5000</span>, <span class='kw'>burnin</span><span class='kw'>=</span><span class='fl'>500</span>, <span class='kw'>listw</span><span class='kw'>=</span><span class='no'>listw_NY</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; 
+#&gt; </div><div class='input'><span class='va'>res</span> <span class='op'>&lt;-</span> <span class='fu'>MCMCsamp</span><span class='op'>(</span><span class='va'>esar0w</span>, mcmc<span class='op'>=</span><span class='fl'>5000</span>, burnin<span class='op'>=</span><span class='fl'>500</span>, listw<span class='op'>=</span><span class='va'>listw_NY</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; Iterations = 1:5000
 #&gt; Thinning interval = 1 
 #&gt; Number of chains = 1 
@@ -558,9 +585,10 @@
 #&gt; PEXPOSURE    0.02200  0.06082  0.08123  0.10067  0.13675
 #&gt; PCTAGE65P    2.70738  3.41885  3.80976  4.20150  4.94589
 #&gt; PCTOWNHOME  -0.70906 -0.47931 -0.38839 -0.28703 -0.06345
-#&gt; </div><div class='input'><span class='no'>esar1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ML_models.html'>errorsarlm</a></span>(<span class='no'>Z</span> ~ <span class='no'>PEXPOSURE</span> + <span class='no'>PCTAGE65P</span> + <span class='no'>PCTOWNHOME</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>nydata</span>,
- <span class='kw'>listw</span><span class='kw'>=</span><span class='no'>listw_NY</span>, <span class='kw'>etype</span><span class='kw'>=</span><span class='st'>"emixed"</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>esar1</span>)</div><div class='output co'>#&gt; 
+#&gt; </div><div class='input'><span class='va'>esar1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='ML_models.html'>errorsarlm</a></span><span class='op'>(</span><span class='va'>Z</span> <span class='op'>~</span> <span class='va'>PEXPOSURE</span> <span class='op'>+</span> <span class='va'>PCTAGE65P</span> <span class='op'>+</span> <span class='va'>PCTOWNHOME</span>, data<span class='op'>=</span><span class='va'>nydata</span>,
+ listw<span class='op'>=</span><span class='va'>listw_NY</span>, etype<span class='op'>=</span><span class='st'>"emixed"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>esar1</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; Call:errorsarlm(formula = Z ~ PEXPOSURE + PCTAGE65P + PCTOWNHOME, 
 #&gt;     data = nydata, listw = listw_NY, etype = "emixed")
 #&gt; 
@@ -590,8 +618,9 @@
 #&gt; Number of observations: 281 
 #&gt; Number of parameters estimated: 10 
 #&gt; AIC: 559.08, (AIC for lm: 558.76)
-#&gt; </div><div class='input'><span class='no'>res</span> <span class='kw'>&lt;-</span> <span class='fu'>MCMCsamp</span>(<span class='no'>esar1</span>, <span class='kw'>mcmc</span><span class='kw'>=</span><span class='fl'>5000</span>, <span class='kw'>burnin</span><span class='kw'>=</span><span class='fl'>500</span>, <span class='kw'>listw</span><span class='kw'>=</span><span class='no'>listw_NY</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; 
+#&gt; </div><div class='input'><span class='va'>res</span> <span class='op'>&lt;-</span> <span class='fu'>MCMCsamp</span><span class='op'>(</span><span class='va'>esar1</span>, mcmc<span class='op'>=</span><span class='fl'>5000</span>, burnin<span class='op'>=</span><span class='fl'>500</span>, listw<span class='op'>=</span><span class='va'>listw_NY</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; Iterations = 1:5000
 #&gt; Thinning interval = 1 
 #&gt; Number of chains = 1 
@@ -623,9 +652,10 @@
 #&gt; lag.PEXPOSURE   -0.069168 -0.04666 -0.03371 -0.02598 -0.003682
 #&gt; lag.PCTAGE65P   -0.204498  0.09091  0.26104  0.40582  0.663236
 #&gt; lag.PCTOWNHOME  -0.270422 -0.18572 -0.14366 -0.10596 -0.030349
-#&gt; </div><div class='input'><span class='no'>lsar0</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ML_models.html'>lagsarlm</a></span>(<span class='no'>Z</span> ~ <span class='no'>PEXPOSURE</span> + <span class='no'>PCTAGE65P</span> + <span class='no'>PCTOWNHOME</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>nydata</span>,
- <span class='kw'>listw</span><span class='kw'>=</span><span class='no'>listw_NY</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>lsar0</span>)</div><div class='output co'>#&gt; 
+#&gt; </div><div class='input'><span class='va'>lsar0</span> <span class='op'>&lt;-</span> <span class='fu'><a href='ML_models.html'>lagsarlm</a></span><span class='op'>(</span><span class='va'>Z</span> <span class='op'>~</span> <span class='va'>PEXPOSURE</span> <span class='op'>+</span> <span class='va'>PCTAGE65P</span> <span class='op'>+</span> <span class='va'>PCTOWNHOME</span>, data<span class='op'>=</span><span class='va'>nydata</span>,
+ listw<span class='op'>=</span><span class='va'>listw_NY</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>lsar0</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; Call:lagsarlm(formula = Z ~ PEXPOSURE + PCTAGE65P + PCTOWNHOME, data = nydata, 
 #&gt;     listw = listw_NY)
 #&gt; 
@@ -653,8 +683,9 @@
 #&gt; AIC: 562.49, (AIC for lm: 567.46)
 #&gt; LM test for residual autocorrelation
 #&gt; test value: 1.4633, p-value: 0.22641
-#&gt; </div><div class='input'><span class='no'>res</span> <span class='kw'>&lt;-</span> <span class='fu'>MCMCsamp</span>(<span class='no'>lsar0</span>, <span class='kw'>mcmc</span><span class='kw'>=</span><span class='fl'>5000</span>, <span class='kw'>burnin</span><span class='kw'>=</span><span class='fl'>500</span>, <span class='kw'>listw</span><span class='kw'>=</span><span class='no'>listw_NY</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; 
+#&gt; </div><div class='input'><span class='va'>res</span> <span class='op'>&lt;-</span> <span class='fu'>MCMCsamp</span><span class='op'>(</span><span class='va'>lsar0</span>, mcmc<span class='op'>=</span><span class='fl'>5000</span>, burnin<span class='op'>=</span><span class='fl'>500</span>, listw<span class='op'>=</span><span class='va'>listw_NY</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; Iterations = 1:5000
 #&gt; Thinning interval = 1 
 #&gt; Number of chains = 1 
@@ -678,9 +709,10 @@
 #&gt; PEXPOSURE   -0.015802  0.02608  0.04816  0.07157  0.10954
 #&gt; PCTAGE65P    2.432746  3.19362  3.62072  4.02246  4.87609
 #&gt; PCTOWNHOME  -0.768748 -0.53969 -0.42812 -0.31526 -0.06927
-#&gt; </div><div class='input'><span class='no'>lsar1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ML_models.html'>lagsarlm</a></span>(<span class='no'>Z</span> ~ <span class='no'>PEXPOSURE</span> + <span class='no'>PCTAGE65P</span> + <span class='no'>PCTOWNHOME</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>nydata</span>,
- <span class='kw'>listw</span><span class='kw'>=</span><span class='no'>listw_NY</span>, <span class='kw'>type</span><span class='kw'>=</span><span class='st'>"mixed"</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>lsar1</span>)</div><div class='output co'>#&gt; 
+#&gt; </div><div class='input'><span class='va'>lsar1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='ML_models.html'>lagsarlm</a></span><span class='op'>(</span><span class='va'>Z</span> <span class='op'>~</span> <span class='va'>PEXPOSURE</span> <span class='op'>+</span> <span class='va'>PCTAGE65P</span> <span class='op'>+</span> <span class='va'>PCTOWNHOME</span>, data<span class='op'>=</span><span class='va'>nydata</span>,
+ listw<span class='op'>=</span><span class='va'>listw_NY</span>, type<span class='op'>=</span><span class='st'>"mixed"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>lsar1</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; Call:lagsarlm(formula = Z ~ PEXPOSURE + PCTAGE65P + PCTOWNHOME, data = nydata, 
 #&gt;     listw = listw_NY, type = "mixed")
 #&gt; 
@@ -712,8 +744,9 @@
 #&gt; AIC: 558.21, (AIC for lm: 558.76)
 #&gt; LM test for residual autocorrelation
 #&gt; test value: 4.908, p-value: 0.026732
-#&gt; </div><div class='input'><span class='no'>res</span> <span class='kw'>&lt;-</span> <span class='fu'>MCMCsamp</span>(<span class='no'>lsar1</span>, <span class='kw'>mcmc</span><span class='kw'>=</span><span class='fl'>5000</span>, <span class='kw'>burnin</span><span class='kw'>=</span><span class='fl'>500</span>, <span class='kw'>listw</span><span class='kw'>=</span><span class='no'>listw_NY</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; 
+#&gt; </div><div class='input'><span class='va'>res</span> <span class='op'>&lt;-</span> <span class='fu'>MCMCsamp</span><span class='op'>(</span><span class='va'>lsar1</span>, mcmc<span class='op'>=</span><span class='fl'>5000</span>, burnin<span class='op'>=</span><span class='fl'>500</span>, listw<span class='op'>=</span><span class='va'>listw_NY</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; Iterations = 1:5000
 #&gt; Thinning interval = 1 
 #&gt; Number of chains = 1 
@@ -745,9 +778,10 @@
 #&gt; lag.PEXPOSURE   -0.066728 -0.04674 -0.03593 -0.02417 -0.006011
 #&gt; lag.PCTAGE65P   -0.306106 -0.02674  0.12948  0.29697  0.606519
 #&gt; lag.PCTOWNHOME  -0.270533 -0.18772 -0.14938 -0.11312 -0.041099
-#&gt; </div><div class='input'><span class='no'>ssar0</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ML_models.html'>sacsarlm</a></span>(<span class='no'>Z</span> ~ <span class='no'>PEXPOSURE</span> + <span class='no'>PCTAGE65P</span> + <span class='no'>PCTOWNHOME</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>nydata</span>,
- <span class='kw'>listw</span><span class='kw'>=</span><span class='no'>listw_NY</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>ssar0</span>)</div><div class='output co'>#&gt; 
+#&gt; </div><div class='input'><span class='va'>ssar0</span> <span class='op'>&lt;-</span> <span class='fu'><a href='ML_models.html'>sacsarlm</a></span><span class='op'>(</span><span class='va'>Z</span> <span class='op'>~</span> <span class='va'>PEXPOSURE</span> <span class='op'>+</span> <span class='va'>PCTAGE65P</span> <span class='op'>+</span> <span class='va'>PCTOWNHOME</span>, data<span class='op'>=</span><span class='va'>nydata</span>,
+ listw<span class='op'>=</span><span class='va'>listw_NY</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>ssar0</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; Call:sacsarlm(formula = Z ~ PEXPOSURE + PCTAGE65P + PCTOWNHOME, data = nydata, 
 #&gt;     listw = listw_NY)
 #&gt; 
@@ -777,8 +811,9 @@
 #&gt; Number of observations: 281 
 #&gt; Number of parameters estimated: 7 
 #&gt; AIC: 561.34, (AIC for lm: 567.46)
-#&gt; </div><div class='input'><span class='no'>res</span> <span class='kw'>&lt;-</span> <span class='fu'>MCMCsamp</span>(<span class='no'>ssar0</span>, <span class='kw'>mcmc</span><span class='kw'>=</span><span class='fl'>5000</span>, <span class='kw'>burnin</span><span class='kw'>=</span><span class='fl'>500</span>, <span class='kw'>listw</span><span class='kw'>=</span><span class='no'>listw_NY</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; 
+#&gt; </div><div class='input'><span class='va'>res</span> <span class='op'>&lt;-</span> <span class='fu'>MCMCsamp</span><span class='op'>(</span><span class='va'>ssar0</span>, mcmc<span class='op'>=</span><span class='fl'>5000</span>, burnin<span class='op'>=</span><span class='fl'>500</span>, listw<span class='op'>=</span><span class='va'>listw_NY</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; Iterations = 1:5000
 #&gt; Thinning interval = 1 
 #&gt; Number of chains = 1 
@@ -804,9 +839,10 @@
 #&gt; PEXPOSURE    0.03267  0.1221  0.17214  0.21368  0.30463
 #&gt; PCTAGE65P    2.07593  2.7990  3.21875  3.63317  4.55371
 #&gt; PCTOWNHOME  -0.57334 -0.3151 -0.15804 -0.01052  0.28834
-#&gt; </div><div class='input'><span class='no'>ssar1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ML_models.html'>sacsarlm</a></span>(<span class='no'>Z</span> ~ <span class='no'>PEXPOSURE</span> + <span class='no'>PCTAGE65P</span> + <span class='no'>PCTOWNHOME</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>nydata</span>,
- <span class='kw'>listw</span><span class='kw'>=</span><span class='no'>listw_NY</span>, <span class='kw'>type</span><span class='kw'>=</span><span class='st'>"sacmixed"</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>ssar1</span>)</div><div class='output co'>#&gt; 
+#&gt; </div><div class='input'><span class='va'>ssar1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='ML_models.html'>sacsarlm</a></span><span class='op'>(</span><span class='va'>Z</span> <span class='op'>~</span> <span class='va'>PEXPOSURE</span> <span class='op'>+</span> <span class='va'>PCTAGE65P</span> <span class='op'>+</span> <span class='va'>PCTOWNHOME</span>, data<span class='op'>=</span><span class='va'>nydata</span>,
+ listw<span class='op'>=</span><span class='va'>listw_NY</span>, type<span class='op'>=</span><span class='st'>"sacmixed"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>ssar1</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; Call:sacsarlm(formula = Z ~ PEXPOSURE + PCTAGE65P + PCTOWNHOME, data = nydata, 
 #&gt;     listw = listw_NY, type = "sacmixed")
 #&gt; 
@@ -840,8 +876,9 @@
 #&gt; Number of observations: 281 
 #&gt; Number of parameters estimated: 11 
 #&gt; AIC: 557.08, (AIC for lm: 567.46)
-#&gt; </div><div class='input'><span class='no'>res</span> <span class='kw'>&lt;-</span> <span class='fu'>MCMCsamp</span>(<span class='no'>ssar1</span>, <span class='kw'>mcmc</span><span class='kw'>=</span><span class='fl'>5000</span>, <span class='kw'>burnin</span><span class='kw'>=</span><span class='fl'>500</span>, <span class='kw'>listw</span><span class='kw'>=</span><span class='no'>listw_NY</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; 
+#&gt; </div><div class='input'><span class='va'>res</span> <span class='op'>&lt;-</span> <span class='fu'>MCMCsamp</span><span class='op'>(</span><span class='va'>ssar1</span>, mcmc<span class='op'>=</span><span class='fl'>5000</span>, burnin<span class='op'>=</span><span class='fl'>500</span>, listw<span class='op'>=</span><span class='va'>listw_NY</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; Iterations = 1:5000
 #&gt; Thinning interval = 1 
 #&gt; Number of chains = 1 
@@ -875,28 +912,16 @@
 #&gt; lag.PEXPOSURE   -0.064986 -0.045013 -0.03387 -0.02116 -0.003128
 #&gt; lag.PCTAGE65P   -0.325625 -0.004242  0.19177  0.39492  0.755637
 #&gt; lag.PCTOWNHOME  -0.268095 -0.182600 -0.14094 -0.09725 -0.026733
-#&gt; </div></pre>
+#&gt; </div><div class='input'><span class='co'># }</span>
+</div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#value">Value</a></li>
-
-      <li><a href="#note">Note</a></li>
-
-      <li><a href="#references">References</a></li>
-
-      <li><a href="#see-also">See also</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
-    <h2>Author</h2>
-    <p>Roger Bivand <a href='mailto:Roger.Bivand@nhh.no'>Roger.Bivand@nhh.no</a></p>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -904,13 +929,16 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

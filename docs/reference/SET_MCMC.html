@@ -8,21 +8,29 @@
 
 <title>Bayesian MCMC spatial simultaneous autoregressive model estimation — spBreg_lag • spatialreg</title>
 
+
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -30,10 +38,10 @@
 
 
 
-<meta property="og:title" content="Bayesian MCMC spatial simultaneous autoregressive model estimation — spBreg_lag" />
 
+<meta property="og:title" content="Bayesian MCMC spatial simultaneous autoregressive model estimation — spBreg_lag" />
 <meta property="og:description" content="The spBreg_lag function is an early-release version of the Matlab Spatial Econometrics Toolbox function sar_g.m, using drawing by inversion, and not accommodating heteroskedastic disturbances." />
-<meta name="twitter:card" content="summary" />
+
 
 
 
@@ -47,9 +55,10 @@
 <![endif]-->
 
 
+
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -63,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">spatialreg</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1-7</span>
       </span>
     </div>
 
@@ -71,7 +80,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -93,12 +102,14 @@
     </li>
   </ul>
 </li>
+<li>
+  <a href="../news/index.html">Changelog</a>
+</li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/r-spatial/spatialreg">
-    <span class="fa fa-github fa-lg"></span>
+  <a href="https://github.com/r-spatial/spatialreg/">
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -109,6 +120,7 @@
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -120,31 +132,29 @@
     </div>
 
     <div class="ref-description">
-    
     <p>The <code>spBreg_lag</code> function is an early-release version of the Matlab Spatial Econometrics Toolbox function <code>sar_g.m</code>, using drawing by inversion, and not accommodating heteroskedastic disturbances.</p>
-    
     </div>
 
-    <pre class="usage"><span class='fu'>spBreg_lag</span>(<span class='no'>formula</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(), <span class='no'>listw</span>, <span class='no'>na.action</span>, <span class='no'>Durbin</span>, <span class='no'>type</span>,
-    <span class='kw'>zero.policy</span><span class='kw'>=</span><span class='kw'>NULL</span>, <span class='kw'>control</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>())
-<span class='fu'>spBreg_sac</span>(<span class='no'>formula</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(), <span class='no'>listw</span>, <span class='kw'>listw2</span><span class='kw'>=</span><span class='kw'>NULL</span>, <span class='no'>na.action</span>,
-    <span class='no'>Durbin</span>, <span class='no'>type</span>, <span class='kw'>zero.policy</span><span class='kw'>=</span><span class='kw'>NULL</span>, <span class='kw'>control</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>())
-<span class='fu'>spBreg_err</span>(<span class='no'>formula</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(), <span class='no'>listw</span>, <span class='no'>na.action</span>, <span class='no'>Durbin</span>, <span class='no'>etype</span>,
-    <span class='kw'>zero.policy</span><span class='kw'>=</span><span class='kw'>NULL</span>, <span class='kw'>control</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>())
-<span class='co'># S3 method for MCMC_sar_g</span>
-<span class='fu'><a href='impacts.html'>impacts</a></span>(<span class='no'>obj</span>, <span class='no'>...</span>, <span class='kw'>tr</span><span class='kw'>=</span><span class='kw'>NULL</span>, <span class='kw'>listw</span><span class='kw'>=</span><span class='kw'>NULL</span>, <span class='kw'>evalues</span><span class='kw'>=</span><span class='kw'>NULL</span>, <span class='kw'>Q</span><span class='kw'>=</span><span class='kw'>NULL</span>)
-<span class='co'># S3 method for MCMC_sem_g</span>
-<span class='fu'><a href='impacts.html'>impacts</a></span>(<span class='no'>obj</span>, <span class='no'>...</span>, <span class='kw'>tr</span><span class='kw'>=</span><span class='kw'>NULL</span>, <span class='kw'>listw</span><span class='kw'>=</span><span class='kw'>NULL</span>, <span class='kw'>evalues</span><span class='kw'>=</span><span class='kw'>NULL</span>, <span class='kw'>Q</span><span class='kw'>=</span><span class='kw'>NULL</span>)
-<span class='co'># S3 method for MCMC_sac_g</span>
-<span class='fu'><a href='impacts.html'>impacts</a></span>(<span class='no'>obj</span>, <span class='no'>...</span>, <span class='kw'>tr</span><span class='kw'>=</span><span class='kw'>NULL</span>, <span class='kw'>listw</span><span class='kw'>=</span><span class='kw'>NULL</span>, <span class='kw'>evalues</span><span class='kw'>=</span><span class='kw'>NULL</span>, <span class='kw'>Q</span><span class='kw'>=</span><span class='kw'>NULL</span>)</pre>
-    
+    <pre class="usage"><span class='fu'>spBreg_lag</span><span class='op'>(</span><span class='va'>formula</span>, data <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='va'>listw</span>, <span class='va'>na.action</span>, <span class='va'>Durbin</span>, <span class='va'>type</span>,
+    zero.policy<span class='op'>=</span><span class='cn'>NULL</span>, control<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'>spBreg_sac</span><span class='op'>(</span><span class='va'>formula</span>, data <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='va'>listw</span>, listw2<span class='op'>=</span><span class='cn'>NULL</span>, <span class='va'>na.action</span>, 
+    <span class='va'>Durbin</span>, <span class='va'>type</span>, zero.policy<span class='op'>=</span><span class='cn'>NULL</span>, control<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'>spBreg_err</span><span class='op'>(</span><span class='va'>formula</span>, data <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='va'>listw</span>, <span class='va'>na.action</span>, <span class='va'>Durbin</span>, <span class='va'>etype</span>,
+    zero.policy<span class='op'>=</span><span class='cn'>NULL</span>, control<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+<span class='co'># S3 method for MCMC_sar_G</span>
+<span class='fu'><a href='impacts.html'>impacts</a></span><span class='op'>(</span><span class='va'>obj</span>, <span class='va'>...</span>, tr<span class='op'>=</span><span class='cn'>NULL</span>, listw<span class='op'>=</span><span class='cn'>NULL</span>, evalues<span class='op'>=</span><span class='cn'>NULL</span>, Q<span class='op'>=</span><span class='cn'>NULL</span><span class='op'>)</span>
+<span class='co'># S3 method for MCMC_sem_G</span>
+<span class='fu'><a href='impacts.html'>impacts</a></span><span class='op'>(</span><span class='va'>obj</span>, <span class='va'>...</span>, tr<span class='op'>=</span><span class='cn'>NULL</span>, listw<span class='op'>=</span><span class='cn'>NULL</span>, evalues<span class='op'>=</span><span class='cn'>NULL</span>, Q<span class='op'>=</span><span class='cn'>NULL</span><span class='op'>)</span>
+<span class='co'># S3 method for MCMC_sac_G</span>
+<span class='fu'><a href='impacts.html'>impacts</a></span><span class='op'>(</span><span class='va'>obj</span>, <span class='va'>...</span>, tr<span class='op'>=</span><span class='cn'>NULL</span>, listw<span class='op'>=</span><span class='cn'>NULL</span>, evalues<span class='op'>=</span><span class='cn'>NULL</span>, Q<span class='op'>=</span><span class='cn'>NULL</span><span class='op'>)</span></pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>formula</th>
       <td><p>a symbolic description of the model to be fit. The details 
-of model specification are given for <code><a href='https://www.rdocumentation.org/packages/stats/topics/lm'>lm()</a></code></p></td>
+of model specification are given for <code><a href='https://rdrr.io/r/stats/lm.html'>lm()</a></code></p></td>
     </tr>
     <tr>
       <th>data</th>
@@ -158,7 +168,7 @@ is called.</p></td>
     </tr>
     <tr>
       <th>na.action</th>
-      <td><p>a function (default <code><a href='https://www.rdocumentation.org/packages/base/topics/options'>options("na.action")</a></code>), can also be <code>na.omit</code> or <code>na.exclude</code> with consequences for residuals and fitted values - in these cases the weights list will be subsetted to remove NAs in the data. It may be necessary to set zero.policy to TRUE because this subsetting may create no-neighbour observations. Note that only weights lists created without using the glist argument to <code>nb2listw</code> may be subsetted.</p></td>
+      <td><p>a function (default <code><a href='https://rdrr.io/r/base/options.html'>options("na.action")</a></code>), can also be <code>na.omit</code> or <code>na.exclude</code> with consequences for residuals and fitted values - in these cases the weights list will be subsetted to remove NAs in the data. It may be necessary to set zero.policy to TRUE because this subsetting may create no-neighbour observations. Note that only weights lists created without using the glist argument to <code>nb2listw</code> may be subsetted.</p></td>
     </tr>
     <tr>
       <th>Durbin</th>
@@ -182,7 +192,7 @@ neighbours, if FALSE (default) assign NA</p></td>
       <td><p>A spatial regression object</p></td>
     </tr>
     <tr>
-      <th>&#8230;</th>
+      <th>...</th>
       <td><p>Arguments passed through to methods in the <span class="pkg">coda</span> package</p></td>
     </tr>
     <tr>
@@ -198,17 +208,18 @@ neighbours, if FALSE (default) assign NA</p></td>
       <td><p>default NULL, else an integer number of cumulative power series impacts to calculate if <code>tr</code> is given</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="control-arguments"><a class="anchor" href="#control-arguments"></a>Control arguments</h2>
 
-    <dl class='dl-horizontal'>
-  <dt>tol.opt:</dt><dd><p>the desired accuracy of the optimization - passed to <code><a href='https://www.rdocumentation.org/packages/stats/topics/optimize'>optimize()</a></code> (default=square root of double precision machine tolerance, a larger root may be used needed, see help(boston) for an example)</p></dd>
+    
+<dl>
+  <dt>tol.opt:</dt><dd><p>the desired accuracy of the optimization - passed to <code><a href='https://rdrr.io/r/stats/optimize.html'>optimize()</a></code> (default=square root of double precision machine tolerance, a larger root may be used needed, see help(boston) for an example)</p></dd>
   <dt>fdHess:</dt><dd><p>default NULL, then set to (method != "eigen") internally; use <code>fdHess</code> to compute an approximate Hessian using finite differences when using sparse matrix methods; used to make a coefficient covariance matrix when the number of observations is large; may be turned off to save resources if need be</p></dd>
   <dt>optimHess:</dt><dd><p>default FALSE, use <code>fdHess</code> from <span class="pkg">nlme</span>, if TRUE, use <code>optim</code> to calculate Hessian at optimum</p></dd>
   <dt>optimHessMethod:</dt><dd><p>default &#8220;optimHess&#8221;, may be &#8220;nlm&#8221; or one of the <code>optim</code> methods</p></dd>
   <dt>compiled_sse:</dt><dd><p>default FALSE; logical value used in the log likelihood function to choose compiled code for computing SSE</p></dd>
   <dt>Imult:</dt><dd><p>default 2; used for preparing the Cholesky decompositions for updating in the Jacobian function</p></dd>
-  <dt>super:</dt><dd><p>if NULL (default), set to FALSE to use a simplicial decomposition for the sparse Cholesky decomposition and method &#8220;Matrix_J&#8221;, set to  <code><a href='https://www.rdocumentation.org/packages/base/topics/logical'>as.logical(NA)</a></code> for method &#8220;Matrix&#8221;, if TRUE, use a supernodal decomposition</p></dd>
+  <dt>super:</dt><dd><p>if NULL (default), set to FALSE to use a simplicial decomposition for the sparse Cholesky decomposition and method &#8220;Matrix_J&#8221;, set to  <code><a href='https://rdrr.io/r/base/logical.html'>as.logical(NA)</a></code> for method &#8220;Matrix&#8221;, if TRUE, use a supernodal decomposition</p></dd>
   <dt>cheb_q:</dt><dd><p>default 5; highest power of the approximating polynomial for the Chebyshev approximation</p></dd>
   <dt>MC_p:</dt><dd><p>default 16; number of random variates</p></dd>
   <dt>MC_m:</dt><dd><p>default 30; number of products of random variates matrix and spatial weights matrix</p></dd>
@@ -226,20 +237,21 @@ neighbours, if FALSE (default) assign NA</p></td>
   <dt>LU_order</dt><dd><p>default FALSE; used in &#8220;LU_prepermutate&#8221;, note warnings given for <code>lu</code> method</p></dd>
   <dt>pre_eig</dt><dd><p>default NULL; may be used to pass a pre-computed vector of eigenvalues</p></dd>
   <dt>OrdVsign</dt><dd><p>default 1; used to set the sign of the final component to negative if -1 (alpha times ((sigma squared) squared) in Ord (1975) equation B.1).</p></dd>
+
 </dl>
-    
     <h2 class="hasAnchor" id="extra-bayesian-control-arguments"><a class="anchor" href="#extra-bayesian-control-arguments"></a>Extra Bayesian control arguments</h2>
 
-    <dl class='dl-horizontal'>
+    
+<dl>
   <dt>ldet_method</dt><dd><p>default &#8220;SE_classic&#8221;; equivalent to the <code>method</code> argument in <code>lagsarlm</code></p></dd>
-  <dt>interval</dt><dd><p>default <code><a href='https://www.rdocumentation.org/packages/base/topics/c'>c(-1, 1)</a></code>; used unmodified or set internally by <code>jacobianSetup</code></p></dd>
+  <dt>interval</dt><dd><p>default <code><a href='https://rdrr.io/r/base/c.html'>c(-1, 1)</a></code>; used unmodified or set internally by <code>jacobianSetup</code></p></dd>
   <dt>ndraw</dt><dd><p>default <code>2500L</code>; integer total number of draws</p></dd>
   <dt>nomit</dt><dd><p>default <code>500L</code>; integer total number of omitted burn-in draws</p></dd>
   <dt>thin</dt><dd><p>default <code>1L</code>; integer thinning proportion</p></dd>
   <dt>verbose</dt><dd><p>default <code>FALSE</code>; inverse of <code>quiet</code> argument in <code>lagsarlm</code></p></dd>
   <dt>detval</dt><dd><p>default <code>NULL</code>; not yet in use, precomputed matrix of log determinants</p></dd>
   <dt>prior</dt><dd><p>a list with the following components:
-    <dl class='dl-horizontal'>
+    <dl>
       <dt>rhoMH, lambdaMH</dt><dd><p>default FALSE; use Metropolis or griddy Gibbs</p></dd>
       <dt>Tbeta</dt><dd><p>default <code>NULL</code>; values of the betas variance-covariance matrix, set to <code>diag(k)*1e+12</code> if <code>NULL</code></p></dd>
       <dt>c_beta</dt><dd><p>default <code>NULL</code>; values of the betas set to 0 if <code>NULL</code></p></dd>
@@ -252,26 +264,28 @@ neighbours, if FALSE (default) assign NA</p></td>
       <dt>cc</dt><dd><p>default <code>0.2</code>; initial tuning parameter for M-H sampling</p></dd>
       <dt>gG_sige</dt><dd><p>default TRUE; include sige in lambda griddy Gibbs update</p></dd>
       <dt>cc1</dt><dd><p>default <code>0.2</code>; initial tuning parameter for M-H sampling</p></dd>
-      <dt>cc2</dt><dd><p>default <code>0.2</code>; initial tuning parameter for M-H sampling</p></dd>
-    </dl></p></dd>
+      <dt>cc2</dt><dd><p>default <code>0.2</code>; initial tuning parameter for M-H sampling</p></dd></dl></p></dd>
+
 </dl>
-    
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>LeSage J and RK Pace (2009) Introduction to Spatial Econometrics. CRC Press, Boca Raton.</p>
-    
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Roger Bivand <a href='mailto:Roger.Bivand@nhh.no'>Roger.Bivand@nhh.no</a>, with thanks to Abhirup Mallik and Virgilio Gómez-Rubio for initial coding GSoC 2011</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>#require("spdep", quietly=TRUE)</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='no'>oldcol</span>, <span class='kw'>package</span><span class='kw'>=</span><span class='st'>"spdep"</span>)
-<span class='no'>lw</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>spdep</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/spdep/topics/nb2listw'>nb2listw</a></span>(<span class='no'>COL.nb</span>, <span class='kw'>style</span><span class='kw'>=</span><span class='st'>"W"</span>)
-<span class='no'>ev</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='eigenw.html'>eigenw</a></span>(<span class='no'>lw</span>)
-<span class='no'>W</span> <span class='kw'>&lt;-</span> <span class='fu'>as</span>(<span class='no'>lw</span>, <span class='st'>"CsparseMatrix"</span>)
-<span class='no'>trMatc</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='trW.html'>trW</a></span>(<span class='no'>W</span>, <span class='kw'>type</span><span class='kw'>=</span><span class='st'>"mult"</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>require</a></span>(<span class='st'>"coda"</span>, <span class='kw'>quietly</span><span class='kw'>=</span><span class='fl'>TRUE</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Random'>set.seed</a></span>(<span class='fl'>1</span>)
-<span class='no'>COL.err.Bayes</span> <span class='kw'>&lt;-</span> <span class='fu'>spBreg_err</span>(<span class='no'>CRIME</span> ~ <span class='no'>INC</span> + <span class='no'>HOVAL</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>COL.OLD</span>, <span class='kw'>listw</span><span class='kw'>=</span><span class='no'>lw</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>COL.err.Bayes</span>))</div><div class='output co'>#&gt; 
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>oldcol</span>, package<span class='op'>=</span><span class='st'>"spdep"</span><span class='op'>)</span>
+<span class='va'>lw</span> <span class='op'>&lt;-</span> <span class='fu'>spdep</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/spdep/man/nb2listw.html'>nb2listw</a></span><span class='op'>(</span><span class='va'>COL.nb</span>, style<span class='op'>=</span><span class='st'>"W"</span><span class='op'>)</span>
+<span class='va'>ev</span> <span class='op'>&lt;-</span> <span class='fu'><a href='griffith_sone.html'>eigenw</a></span><span class='op'>(</span><span class='va'>lw</span><span class='op'>)</span>
+<span class='va'>W</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://r-spatial.github.io/sf/reference/coerce-methods.html'>as</a></span><span class='op'>(</span><span class='va'>lw</span>, <span class='st'>"CsparseMatrix"</span><span class='op'>)</span>
+<span class='va'>trMatc</span> <span class='op'>&lt;-</span> <span class='fu'><a href='trW.html'>trW</a></span><span class='op'>(</span><span class='va'>W</span>, type<span class='op'>=</span><span class='st'>"mult"</span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>require</a></span><span class='op'>(</span><span class='st'>"coda"</span>, quietly<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span>
+<span class='va'>COL.err.Bayes</span> <span class='op'>&lt;-</span> <span class='fu'>spBreg_err</span><span class='op'>(</span><span class='va'>CRIME</span> <span class='op'>~</span> <span class='va'>INC</span> <span class='op'>+</span> <span class='va'>HOVAL</span>, data<span class='op'>=</span><span class='va'>COL.OLD</span>, listw<span class='op'>=</span><span class='va'>lw</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>COL.err.Bayes</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; Iterations = 501:2500
 #&gt; Thinning interval = 1 
 #&gt; Number of chains = 1 
@@ -295,7 +309,8 @@ neighbours, if FALSE (default) assign NA</p></td>
 #&gt; HOVAL       -0.4977 -0.3683  -0.3010  -0.2346  -0.1070
 #&gt; lambda       0.2335  0.4717   0.5773   0.6758   0.8309
 #&gt; sige        74.4245 96.7013 111.9152 129.2463 176.8133
-#&gt; </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/coda/topics/raftery.diag'>raftery.diag</a></span>(<span class='no'>COL.err.Bayes</span>, <span class='kw'>r</span><span class='kw'>=</span><span class='fl'>0.01</span>))</div><div class='output co'>#&gt; 
+#&gt; </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/coda/man/raftery.diag.html'>raftery.diag</a></span><span class='op'>(</span><span class='va'>COL.err.Bayes</span>, r<span class='op'>=</span><span class='fl'>0.01</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; Quantile (q) = 0.025
 #&gt; Accuracy (r) = +/- 0.01
 #&gt; Probability (s) = 0.95 
@@ -307,10 +322,12 @@ neighbours, if FALSE (default) assign NA</p></td>
 #&gt;  HOVAL       3        1052  937          1.120     
 #&gt;  lambda      3        1010  937          1.080     
 #&gt;  sige        2        930   937          0.993     
-#&gt; </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Random'>set.seed</a></span>(<span class='fl'>1</span>)
-<span class='no'>COL.err.Bayes</span> <span class='kw'>&lt;-</span> <span class='fu'>spBreg_err</span>(<span class='no'>CRIME</span> ~ <span class='no'>INC</span> + <span class='no'>HOVAL</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>COL.OLD</span>, <span class='kw'>listw</span><span class='kw'>=</span><span class='no'>lw</span>,
- <span class='kw'>control</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>prior</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>lambdaMH</span><span class='kw'>=</span><span class='fl'>TRUE</span>)))
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>COL.err.Bayes</span>))</div><div class='output co'>#&gt; 
+#&gt; </div><div class='input'><span class='co'># \dontrun{</span>
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span>
+<span class='va'>COL.err.Bayes</span> <span class='op'>&lt;-</span> <span class='fu'>spBreg_err</span><span class='op'>(</span><span class='va'>CRIME</span> <span class='op'>~</span> <span class='va'>INC</span> <span class='op'>+</span> <span class='va'>HOVAL</span>, data<span class='op'>=</span><span class='va'>COL.OLD</span>, listw<span class='op'>=</span><span class='va'>lw</span>,
+ control<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>prior<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>lambdaMH<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>COL.err.Bayes</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; Iterations = 501:2500
 #&gt; Thinning interval = 1 
 #&gt; Number of chains = 1 
@@ -334,7 +351,8 @@ neighbours, if FALSE (default) assign NA</p></td>
 #&gt; HOVAL       -0.5102 -0.370  -0.3005  -0.2359  -0.1019
 #&gt; lambda       0.2826  0.511   0.6135   0.7023   0.8676
 #&gt; sige        74.1788 97.167 113.2955 130.2498 182.6024
-#&gt; </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/coda/topics/raftery.diag'>raftery.diag</a></span>(<span class='no'>COL.err.Bayes</span>, <span class='kw'>r</span><span class='kw'>=</span><span class='fl'>0.01</span>))</div><div class='output co'>#&gt; 
+#&gt; </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/coda/man/raftery.diag.html'>raftery.diag</a></span><span class='op'>(</span><span class='va'>COL.err.Bayes</span>, r<span class='op'>=</span><span class='fl'>0.01</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; Quantile (q) = 0.025
 #&gt; Accuracy (r) = +/- 0.01
 #&gt; Probability (s) = 0.95 
@@ -346,10 +364,11 @@ neighbours, if FALSE (default) assign NA</p></td>
 #&gt;  HOVAL       2        892   937          0.952     
 #&gt;  lambda      17       4454  937          4.750     
 #&gt;  sige        2        930   937          0.993     
-#&gt; </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Random'>set.seed</a></span>(<span class='fl'>1</span>)
-<span class='no'>COL.err.Bayes</span> <span class='kw'>&lt;-</span> <span class='fu'>spBreg_err</span>(<span class='no'>CRIME</span> ~ <span class='no'>INC</span> + <span class='no'>HOVAL</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>COL.OLD</span>, <span class='kw'>listw</span><span class='kw'>=</span><span class='no'>lw</span>,
- <span class='kw'>Durbin</span><span class='kw'>=</span><span class='fl'>TRUE</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>COL.err.Bayes</span>))</div><div class='output co'>#&gt; 
+#&gt; </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span>
+<span class='va'>COL.err.Bayes</span> <span class='op'>&lt;-</span> <span class='fu'>spBreg_err</span><span class='op'>(</span><span class='va'>CRIME</span> <span class='op'>~</span> <span class='va'>INC</span> <span class='op'>+</span> <span class='va'>HOVAL</span>, data<span class='op'>=</span><span class='va'>COL.OLD</span>, listw<span class='op'>=</span><span class='va'>lw</span>,
+ Durbin<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>COL.err.Bayes</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; Iterations = 501:2500
 #&gt; Thinning interval = 1 
 #&gt; Number of chains = 1 
@@ -377,7 +396,8 @@ neighbours, if FALSE (default) assign NA</p></td>
 #&gt; lag.HOVAL   -0.3926 -0.06243   0.09177   0.2443   0.55929
 #&gt; lambda       0.1165  0.37669   0.49775   0.6118   0.79690
 #&gt; sige        73.4827 95.70364 110.68368 129.1459 177.97468
-#&gt; </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='fu'><a href='impacts.html'>impacts</a></span>(<span class='no'>COL.err.Bayes</span>)))</div><div class='output co'>#&gt; Impact measures (SDEM, MCMC, n):
+#&gt; </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='fu'><a href='impacts.html'>impacts</a></span><span class='op'>(</span><span class='va'>COL.err.Bayes</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Impact measures (SDEM, MCMC, n):
 #&gt;           Direct    Indirect      Total
 #&gt; INC   -1.0154294 -1.06753527 -2.0829647
 #&gt; HOVAL -0.2806034  0.08960515 -0.1909982
@@ -396,7 +416,8 @@ neighbours, if FALSE (default) assign NA</p></td>
 #&gt;       Direct    Indirect Total   
 #&gt; INC   0.0044021 0.12728  0.011648
 #&gt; HOVAL 0.0047839 0.69151  0.482042
-#&gt; </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/coda/topics/raftery.diag'>raftery.diag</a></span>(<span class='no'>COL.err.Bayes</span>, <span class='kw'>r</span><span class='kw'>=</span><span class='fl'>0.01</span>))</div><div class='output co'>#&gt; 
+#&gt; </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/coda/man/raftery.diag.html'>raftery.diag</a></span><span class='op'>(</span><span class='va'>COL.err.Bayes</span>, r<span class='op'>=</span><span class='fl'>0.01</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; Quantile (q) = 0.025
 #&gt; Accuracy (r) = +/- 0.01
 #&gt; Probability (s) = 0.95 
@@ -410,10 +431,11 @@ neighbours, if FALSE (default) assign NA</p></td>
 #&gt;  lag.HOVAL   2        892   937          0.952     
 #&gt;  lambda      2        930   937          0.993     
 #&gt;  sige        2        930   937          0.993     
-#&gt; </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Random'>set.seed</a></span>(<span class='fl'>1</span>)
-<span class='no'>COL.err.Bayes</span> <span class='kw'>&lt;-</span> <span class='fu'>spBreg_err</span>(<span class='no'>CRIME</span> ~ <span class='no'>INC</span> + <span class='no'>HOVAL</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>COL.OLD</span>, <span class='kw'>listw</span><span class='kw'>=</span><span class='no'>lw</span>,
- <span class='kw'>Durbin</span><span class='kw'>=</span><span class='fl'>TRUE</span>, <span class='kw'>control</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>prior</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>lambdaMH</span><span class='kw'>=</span><span class='fl'>TRUE</span>)))
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>COL.err.Bayes</span>))</div><div class='output co'>#&gt; 
+#&gt; </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span>
+<span class='va'>COL.err.Bayes</span> <span class='op'>&lt;-</span> <span class='fu'>spBreg_err</span><span class='op'>(</span><span class='va'>CRIME</span> <span class='op'>~</span> <span class='va'>INC</span> <span class='op'>+</span> <span class='va'>HOVAL</span>, data<span class='op'>=</span><span class='va'>COL.OLD</span>, listw<span class='op'>=</span><span class='va'>lw</span>,
+ Durbin<span class='op'>=</span><span class='cn'>TRUE</span>, control<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>prior<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>lambdaMH<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>COL.err.Bayes</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; Iterations = 501:2500
 #&gt; Thinning interval = 1 
 #&gt; Number of chains = 1 
@@ -441,7 +463,8 @@ neighbours, if FALSE (default) assign NA</p></td>
 #&gt; lag.HOVAL   -0.4869 -0.1027   0.06799   0.2443   0.56913
 #&gt; lambda       0.2366  0.5043   0.62080   0.7333   0.92570
 #&gt; sige        76.7686 99.6498 116.80421 135.9061 189.12857
-#&gt; </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='fu'><a href='impacts.html'>impacts</a></span>(<span class='no'>COL.err.Bayes</span>)))</div><div class='output co'>#&gt; Impact measures (SDEM, MCMC, n):
+#&gt; </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='fu'><a href='impacts.html'>impacts</a></span><span class='op'>(</span><span class='va'>COL.err.Bayes</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Impact measures (SDEM, MCMC, n):
 #&gt;           Direct    Indirect      Total
 #&gt; INC   -0.9703690 -0.95214894 -1.9225179
 #&gt; HOVAL -0.2845537  0.06555386 -0.2189999
@@ -460,7 +483,8 @@ neighbours, if FALSE (default) assign NA</p></td>
 #&gt;       Direct    Indirect Total   
 #&gt; INC   0.0127127 0.23309  0.052932
 #&gt; HOVAL 0.0087411 0.79622  0.490429
-#&gt; </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/coda/topics/raftery.diag'>raftery.diag</a></span>(<span class='no'>COL.err.Bayes</span>, <span class='kw'>r</span><span class='kw'>=</span><span class='fl'>0.01</span>))</div><div class='output co'>#&gt; 
+#&gt; </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/coda/man/raftery.diag.html'>raftery.diag</a></span><span class='op'>(</span><span class='va'>COL.err.Bayes</span>, r<span class='op'>=</span><span class='fl'>0.01</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; Quantile (q) = 0.025
 #&gt; Accuracy (r) = +/- 0.01
 #&gt; Probability (s) = 0.95 
@@ -474,10 +498,11 @@ neighbours, if FALSE (default) assign NA</p></td>
 #&gt;  lag.HOVAL   2        930   937          0.993     
 #&gt;  lambda      14       3645  937          3.890     
 #&gt;  sige        2        930   937          0.993     
-#&gt; </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Random'>set.seed</a></span>(<span class='fl'>1</span>)
-<span class='no'>COL.err.Bayes</span> <span class='kw'>&lt;-</span> <span class='fu'>spBreg_err</span>(<span class='no'>CRIME</span> ~ <span class='no'>INC</span> + <span class='no'>HOVAL</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>COL.OLD</span>, <span class='kw'>listw</span><span class='kw'>=</span><span class='no'>lw</span>,
- <span class='kw'>Durbin</span><span class='kw'>=</span>~<span class='no'>INC</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>COL.err.Bayes</span>))</div><div class='output co'>#&gt; 
+#&gt; </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span>
+<span class='va'>COL.err.Bayes</span> <span class='op'>&lt;-</span> <span class='fu'>spBreg_err</span><span class='op'>(</span><span class='va'>CRIME</span> <span class='op'>~</span> <span class='va'>INC</span> <span class='op'>+</span> <span class='va'>HOVAL</span>, data<span class='op'>=</span><span class='va'>COL.OLD</span>, listw<span class='op'>=</span><span class='va'>lw</span>,
+ Durbin<span class='op'>=</span><span class='op'>~</span><span class='va'>INC</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>COL.err.Bayes</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; Iterations = 501:2500
 #&gt; Thinning interval = 1 
 #&gt; Number of chains = 1 
@@ -503,7 +528,8 @@ neighbours, if FALSE (default) assign NA</p></td>
 #&gt; lag.INC     -2.0736 -1.3191  -0.9217  -0.5457   0.27871
 #&gt; lambda       0.1355  0.3737   0.4987   0.6088   0.80100
 #&gt; sige        73.0813 94.1656 108.2980 125.8857 173.13082
-#&gt; </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='fu'><a href='impacts.html'>impacts</a></span>(<span class='no'>COL.err.Bayes</span>)))</div><div class='output co'>#&gt; Impact measures (SDEM, MCMC, n):
+#&gt; </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='fu'><a href='impacts.html'>impacts</a></span><span class='op'>(</span><span class='va'>COL.err.Bayes</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Impact measures (SDEM, MCMC, n):
 #&gt;           Direct   Indirect      Total
 #&gt; INC   -1.0339443 -0.9190497 -1.9529940
 #&gt; HOVAL -0.2860029         NA -0.2860029
@@ -522,7 +548,8 @@ neighbours, if FALSE (default) assign NA</p></td>
 #&gt;       Direct    Indirect Total    
 #&gt; INC   0.0048391 0.10506  0.0052358
 #&gt; HOVAL 0.0024648 NA       0.0024648
-#&gt; </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/coda/topics/raftery.diag'>raftery.diag</a></span>(<span class='no'>COL.err.Bayes</span>, <span class='kw'>r</span><span class='kw'>=</span><span class='fl'>0.01</span>))</div><div class='output co'>#&gt; 
+#&gt; </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/coda/man/raftery.diag.html'>raftery.diag</a></span><span class='op'>(</span><span class='va'>COL.err.Bayes</span>, r<span class='op'>=</span><span class='fl'>0.01</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; Quantile (q) = 0.025
 #&gt; Accuracy (r) = +/- 0.01
 #&gt; Probability (s) = 0.95 
@@ -535,10 +562,11 @@ neighbours, if FALSE (default) assign NA</p></td>
 #&gt;  lag.INC     2        892   937          0.952     
 #&gt;  lambda      2        892   937          0.952     
 #&gt;  sige        3        1010  937          1.080     
-#&gt; </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Random'>set.seed</a></span>(<span class='fl'>1</span>)
-<span class='no'>COL.err.Bayes</span> <span class='kw'>&lt;-</span> <span class='fu'>spBreg_err</span>(<span class='no'>CRIME</span> ~ <span class='no'>INC</span> + <span class='no'>HOVAL</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>COL.OLD</span>, <span class='kw'>listw</span><span class='kw'>=</span><span class='no'>lw</span>,
- <span class='kw'>Durbin</span><span class='kw'>=</span>~<span class='no'>INC</span>, <span class='kw'>control</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>prior</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>lambdaMH</span><span class='kw'>=</span><span class='fl'>TRUE</span>)))
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>COL.err.Bayes</span>))</div><div class='output co'>#&gt; 
+#&gt; </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span>
+<span class='va'>COL.err.Bayes</span> <span class='op'>&lt;-</span> <span class='fu'>spBreg_err</span><span class='op'>(</span><span class='va'>CRIME</span> <span class='op'>~</span> <span class='va'>INC</span> <span class='op'>+</span> <span class='va'>HOVAL</span>, data<span class='op'>=</span><span class='va'>COL.OLD</span>, listw<span class='op'>=</span><span class='va'>lw</span>,
+ Durbin<span class='op'>=</span><span class='op'>~</span><span class='va'>INC</span>, control<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>prior<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>lambdaMH<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>COL.err.Bayes</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; Iterations = 501:2500
 #&gt; Thinning interval = 1 
 #&gt; Number of chains = 1 
@@ -564,7 +592,8 @@ neighbours, if FALSE (default) assign NA</p></td>
 #&gt; lag.INC     -2.1579 -1.2914  -0.8847  -0.4386   0.4898
 #&gt; lambda       0.2436  0.4725   0.5835   0.6981   0.8672
 #&gt; sige        73.5737 96.1297 111.5039 130.5606 176.0332
-#&gt; </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='fu'><a href='impacts.html'>impacts</a></span>(<span class='no'>COL.err.Bayes</span>)))</div><div class='output co'>#&gt; Impact measures (SDEM, MCMC, n):
+#&gt; </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='fu'><a href='impacts.html'>impacts</a></span><span class='op'>(</span><span class='va'>COL.err.Bayes</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Impact measures (SDEM, MCMC, n):
 #&gt;           Direct   Indirect      Total
 #&gt; INC   -0.9843411 -0.8605551 -1.8448962
 #&gt; HOVAL -0.2889068         NA -0.2889068
@@ -583,7 +612,8 @@ neighbours, if FALSE (default) assign NA</p></td>
 #&gt;       Direct    Indirect Total    
 #&gt; INC   0.0073359 0.17623  0.0218484
 #&gt; HOVAL 0.0027763 NA       0.0027763
-#&gt; </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/coda/topics/raftery.diag'>raftery.diag</a></span>(<span class='no'>COL.err.Bayes</span>, <span class='kw'>r</span><span class='kw'>=</span><span class='fl'>0.01</span>))</div><div class='output co'>#&gt; 
+#&gt; </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/coda/man/raftery.diag.html'>raftery.diag</a></span><span class='op'>(</span><span class='va'>COL.err.Bayes</span>, r<span class='op'>=</span><span class='fl'>0.01</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; Quantile (q) = 0.025
 #&gt; Accuracy (r) = +/- 0.01
 #&gt; Probability (s) = 0.95 
@@ -596,10 +626,11 @@ neighbours, if FALSE (default) assign NA</p></td>
 #&gt;  lag.INC     2        892   937          0.952     
 #&gt;  lambda      10       2853  937          3.040     
 #&gt;  sige        2        930   937          0.993     
-#&gt; </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Random'>set.seed</a></span>(<span class='fl'>1</span>)
-<span class='no'>COL.sacW.B0</span> <span class='kw'>&lt;-</span> <span class='fu'>spBreg_sac</span>(<span class='no'>CRIME</span> ~ <span class='no'>INC</span> + <span class='no'>HOVAL</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>COL.OLD</span>, <span class='kw'>listw</span><span class='kw'>=</span><span class='no'>lw</span>,
- <span class='kw'>Durbin</span><span class='kw'>=</span><span class='fl'>FALSE</span>, <span class='kw'>control</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>ndraw</span><span class='kw'>=</span><span class='fl'>1500L</span>, <span class='kw'>nomit</span><span class='kw'>=</span><span class='fl'>500L</span>))
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>COL.sacW.B0</span>))</div><div class='output co'>#&gt; 
+#&gt; </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span>
+<span class='va'>COL.sacW.B0</span> <span class='op'>&lt;-</span> <span class='fu'>spBreg_sac</span><span class='op'>(</span><span class='va'>CRIME</span> <span class='op'>~</span> <span class='va'>INC</span> <span class='op'>+</span> <span class='va'>HOVAL</span>, data<span class='op'>=</span><span class='va'>COL.OLD</span>, listw<span class='op'>=</span><span class='va'>lw</span>,
+ Durbin<span class='op'>=</span><span class='cn'>FALSE</span>, control<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>ndraw<span class='op'>=</span><span class='fl'>1500L</span>, nomit<span class='op'>=</span><span class='fl'>500L</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>COL.sacW.B0</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; Iterations = 501:1500
 #&gt; Thinning interval = 1 
 #&gt; Number of chains = 1 
@@ -625,12 +656,13 @@ neighbours, if FALSE (default) assign NA</p></td>
 #&gt; rho         -0.1548  0.21285   0.3406   0.4438   0.6176
 #&gt; lambda      -0.3788  0.01455   0.2171   0.3794   0.6988
 #&gt; sige        68.5025 88.13909 101.6888 118.2545 160.2792
-#&gt; </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='fu'><a href='impacts.html'>impacts</a></span>(<span class='no'>COL.sacW.B0</span>, <span class='kw'>tr</span><span class='kw'>=</span><span class='no'>trMatc</span>), <span class='kw'>zstats</span><span class='kw'>=</span><span class='fl'>TRUE</span>, <span class='kw'>short</span><span class='kw'>=</span><span class='fl'>TRUE</span>))</div><div class='output co'>#&gt; Impact measures (sac, trace):
+#&gt; </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='fu'><a href='impacts.html'>impacts</a></span><span class='op'>(</span><span class='va'>COL.sacW.B0</span>, tr<span class='op'>=</span><span class='va'>trMatc</span><span class='op'>)</span>, zstats<span class='op'>=</span><span class='cn'>TRUE</span>, short<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Impact measures (sac, trace):
 #&gt;          Direct   Indirect      Total
 #&gt; INC   -1.017325 -0.4246675 -1.4419930
 #&gt; HOVAL -0.291816 -0.1218143 -0.4136303
 #&gt; ========================================================
-#&gt; MCMC sample impact results:
+#&gt; Simulation results ( variance matrix):
 #&gt; ========================================================
 #&gt; Simulated standard errors
 #&gt;          Direct  Indirect     Total
@@ -645,10 +677,11 @@ neighbours, if FALSE (default) assign NA</p></td>
 #&gt; Simulated p-values:
 #&gt;       Direct    Indirect Total   
 #&gt; INC   0.0049810 0.22250  0.018396
-#&gt; HOVAL 0.0036043 0.26865  0.025056</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Random'>set.seed</a></span>(<span class='fl'>1</span>)
-<span class='no'>COL.sacW.B1</span> <span class='kw'>&lt;-</span> <span class='fu'>spBreg_sac</span>(<span class='no'>CRIME</span> ~ <span class='no'>INC</span> + <span class='no'>HOVAL</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>COL.OLD</span>, <span class='kw'>listw</span><span class='kw'>=</span><span class='no'>lw</span>,
- <span class='kw'>Durbin</span><span class='kw'>=</span><span class='fl'>TRUE</span>, <span class='kw'>control</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>ndraw</span><span class='kw'>=</span><span class='fl'>1500L</span>, <span class='kw'>nomit</span><span class='kw'>=</span><span class='fl'>500L</span>))
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>COL.sacW.B1</span>))</div><div class='output co'>#&gt; 
+#&gt; HOVAL 0.0036043 0.26865  0.025056</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span>
+<span class='va'>COL.sacW.B1</span> <span class='op'>&lt;-</span> <span class='fu'>spBreg_sac</span><span class='op'>(</span><span class='va'>CRIME</span> <span class='op'>~</span> <span class='va'>INC</span> <span class='op'>+</span> <span class='va'>HOVAL</span>, data<span class='op'>=</span><span class='va'>COL.OLD</span>, listw<span class='op'>=</span><span class='va'>lw</span>,
+ Durbin<span class='op'>=</span><span class='cn'>TRUE</span>, control<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>ndraw<span class='op'>=</span><span class='fl'>1500L</span>, nomit<span class='op'>=</span><span class='fl'>500L</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>COL.sacW.B1</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; Iterations = 501:1500
 #&gt; Thinning interval = 1 
 #&gt; Number of chains = 1 
@@ -678,12 +711,13 @@ neighbours, if FALSE (default) assign NA</p></td>
 #&gt; rho         -0.5076 -0.021227  0.2386   0.4320   0.6655
 #&gt; lambda      -0.5106 -0.007594  0.2129   0.4482   0.7389
 #&gt; sige        64.6867 84.395156 96.9599 114.4101 159.7252
-#&gt; </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='fu'><a href='impacts.html'>impacts</a></span>(<span class='no'>COL.sacW.B1</span>, <span class='kw'>tr</span><span class='kw'>=</span><span class='no'>trMatc</span>), <span class='kw'>zstats</span><span class='kw'>=</span><span class='fl'>TRUE</span>, <span class='kw'>short</span><span class='kw'>=</span><span class='fl'>TRUE</span>))</div><div class='output co'>#&gt; Impact measures (sacmixed, trace):
+#&gt; </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='fu'><a href='impacts.html'>impacts</a></span><span class='op'>(</span><span class='va'>COL.sacW.B1</span>, tr<span class='op'>=</span><span class='va'>trMatc</span><span class='op'>)</span>, zstats<span class='op'>=</span><span class='cn'>TRUE</span>, short<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Impact measures (sacmixed, trace):
 #&gt;           Direct  Indirect      Total
 #&gt; INC   -1.0332779 -1.239705 -2.2729830
 #&gt; HOVAL -0.2787547  0.140259 -0.1384957
 #&gt; ========================================================
-#&gt; MCMC sample impact results:
+#&gt; Simulation results ( variance matrix):
 #&gt; ========================================================
 #&gt; Simulated standard errors
 #&gt;          Direct  Indirect     Total
@@ -698,10 +732,11 @@ neighbours, if FALSE (default) assign NA</p></td>
 #&gt; Simulated p-values:
 #&gt;       Direct    Indirect Total   
 #&gt; INC   0.0030545 0.15125  0.020966
-#&gt; HOVAL 0.0055051 0.58810  0.688044</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Random'>set.seed</a></span>(<span class='fl'>1</span>)
-<span class='no'>COL.lag.Bayes</span> <span class='kw'>&lt;-</span> <span class='fu'>spBreg_lag</span>(<span class='no'>CRIME</span> ~ <span class='no'>INC</span> + <span class='no'>HOVAL</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>COL.OLD</span>,
- <span class='kw'>listw</span><span class='kw'>=</span><span class='no'>lw</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>COL.lag.Bayes</span>))</div><div class='output co'>#&gt; 
+#&gt; HOVAL 0.0055051 0.58810  0.688044</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span>
+<span class='va'>COL.lag.Bayes</span> <span class='op'>&lt;-</span> <span class='fu'>spBreg_lag</span><span class='op'>(</span><span class='va'>CRIME</span> <span class='op'>~</span> <span class='va'>INC</span> <span class='op'>+</span> <span class='va'>HOVAL</span>, data<span class='op'>=</span><span class='va'>COL.OLD</span>,
+ listw<span class='op'>=</span><span class='va'>lw</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>COL.lag.Bayes</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; Iterations = 501:2500
 #&gt; Thinning interval = 1 
 #&gt; Number of chains = 1 
@@ -725,12 +760,13 @@ neighbours, if FALSE (default) assign NA</p></td>
 #&gt; HOVAL       -0.4533 -0.3312  -0.2686  -0.2019  -0.08107
 #&gt; rho          0.1645  0.3327   0.4157   0.5008   0.64982
 #&gt; sige        70.5778 90.6316 104.8556 120.4706 164.75421
-#&gt; </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='fu'><a href='impacts.html'>impacts</a></span>(<span class='no'>COL.lag.Bayes</span>, <span class='kw'>tr</span><span class='kw'>=</span><span class='no'>trMatc</span>), <span class='kw'>short</span><span class='kw'>=</span><span class='fl'>TRUE</span>, <span class='kw'>zstats</span><span class='kw'>=</span><span class='fl'>TRUE</span>))</div><div class='output co'>#&gt; Impact measures (lag, trace):
+#&gt; </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='fu'><a href='impacts.html'>impacts</a></span><span class='op'>(</span><span class='va'>COL.lag.Bayes</span>, tr<span class='op'>=</span><span class='va'>trMatc</span><span class='op'>)</span>, short<span class='op'>=</span><span class='cn'>TRUE</span>, zstats<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Impact measures (lag, trace):
 #&gt;           Direct   Indirect      Total
 #&gt; INC   -1.0962113 -0.6903627 -1.7865741
 #&gt; HOVAL -0.2790451 -0.1757347 -0.4547797
 #&gt; ========================================================
-#&gt; MCMC sample impact results:
+#&gt; Simulation results ( variance matrix):
 #&gt; ========================================================
 #&gt; Simulated standard errors
 #&gt;          Direct  Indirect     Total
@@ -745,12 +781,13 @@ neighbours, if FALSE (default) assign NA</p></td>
 #&gt; Simulated p-values:
 #&gt;       Direct    Indirect Total   
 #&gt; INC   0.0026718 0.12012  0.014772
-#&gt; HOVAL 0.0049639 0.15414  0.026932</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='fu'><a href='impacts.html'>impacts</a></span>(<span class='no'>COL.lag.Bayes</span>, <span class='kw'>evalues</span><span class='kw'>=</span><span class='no'>ev</span>), <span class='kw'>short</span><span class='kw'>=</span><span class='fl'>TRUE</span>, <span class='kw'>zstats</span><span class='kw'>=</span><span class='fl'>TRUE</span>))</div><div class='output co'>#&gt; Impact measures (lag, evalues):
+#&gt; HOVAL 0.0049639 0.15414  0.026932</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='fu'><a href='impacts.html'>impacts</a></span><span class='op'>(</span><span class='va'>COL.lag.Bayes</span>, evalues<span class='op'>=</span><span class='va'>ev</span><span class='op'>)</span>, short<span class='op'>=</span><span class='cn'>TRUE</span>, zstats<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Impact measures (lag, evalues):
 #&gt;           Direct   Indirect      Total
 #&gt; INC   -1.0962113 -0.6903627 -1.7865741
 #&gt; HOVAL -0.2790451 -0.1757347 -0.4547797
 #&gt; ========================================================
-#&gt; MCMC sample impact results:
+#&gt; Simulation results ( variance matrix):
 #&gt; ========================================================
 #&gt; Simulated standard errors
 #&gt;          Direct  Indirect     Total
@@ -765,10 +802,11 @@ neighbours, if FALSE (default) assign NA</p></td>
 #&gt; Simulated p-values:
 #&gt;       Direct    Indirect Total   
 #&gt; INC   0.0026718 0.12026  0.014788
-#&gt; HOVAL 0.0049642 0.15457  0.027010</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Random'>set.seed</a></span>(<span class='fl'>1</span>)
-<span class='no'>COL.D0.Bayes</span> <span class='kw'>&lt;-</span> <span class='fu'>spBreg_lag</span>(<span class='no'>CRIME</span> ~ <span class='no'>INC</span> + <span class='no'>HOVAL</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>COL.OLD</span>,
- <span class='kw'>listw</span><span class='kw'>=</span><span class='no'>lw</span>, <span class='kw'>Durbin</span><span class='kw'>=</span><span class='fl'>TRUE</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>COL.D0.Bayes</span>))</div><div class='output co'>#&gt; 
+#&gt; HOVAL 0.0049642 0.15457  0.027010</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span>
+<span class='va'>COL.D0.Bayes</span> <span class='op'>&lt;-</span> <span class='fu'>spBreg_lag</span><span class='op'>(</span><span class='va'>CRIME</span> <span class='op'>~</span> <span class='va'>INC</span> <span class='op'>+</span> <span class='va'>HOVAL</span>, data<span class='op'>=</span><span class='va'>COL.OLD</span>,
+ listw<span class='op'>=</span><span class='va'>lw</span>, Durbin<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>COL.D0.Bayes</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; Iterations = 501:2500
 #&gt; Thinning interval = 1 
 #&gt; Number of chains = 1 
@@ -796,12 +834,13 @@ neighbours, if FALSE (default) assign NA</p></td>
 #&gt; lag.HOVAL   -0.14391  0.1068   0.2393   0.3670   0.6168
 #&gt; rho          0.06053  0.2826   0.3977   0.5078   0.6949
 #&gt; sige        71.19421 91.4872 106.1690 123.7826 170.9503
-#&gt; </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='fu'><a href='impacts.html'>impacts</a></span>(<span class='no'>COL.D0.Bayes</span>, <span class='kw'>tr</span><span class='kw'>=</span><span class='no'>trMatc</span>), <span class='kw'>short</span><span class='kw'>=</span><span class='fl'>TRUE</span>, <span class='kw'>zstats</span><span class='kw'>=</span><span class='fl'>TRUE</span>))</div><div class='output co'>#&gt; Impact measures (mixed, trace):
+#&gt; </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='fu'><a href='impacts.html'>impacts</a></span><span class='op'>(</span><span class='va'>COL.D0.Bayes</span>, tr<span class='op'>=</span><span class='va'>trMatc</span><span class='op'>)</span>, short<span class='op'>=</span><span class='cn'>TRUE</span>, zstats<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Impact measures (mixed, trace):
 #&gt;          Direct   Indirect       Total
 #&gt; INC   -1.027773 -1.4589793 -2.48675192
 #&gt; HOVAL -0.280732  0.1908138 -0.08991828
 #&gt; ========================================================
-#&gt; MCMC sample impact results:
+#&gt; Simulation results ( variance matrix):
 #&gt; ========================================================
 #&gt; Simulated standard errors
 #&gt;           Direct  Indirect     Total
@@ -816,10 +855,11 @@ neighbours, if FALSE (default) assign NA</p></td>
 #&gt; Simulated p-values:
 #&gt;       Direct    Indirect Total   
 #&gt; INC   0.0061566 0.20831  0.063388
-#&gt; HOVAL 0.0045345 0.57476  0.798861</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Random'>set.seed</a></span>(<span class='fl'>1</span>)
-<span class='no'>COL.D1.Bayes</span> <span class='kw'>&lt;-</span> <span class='fu'>spBreg_lag</span>(<span class='no'>CRIME</span> ~ <span class='no'>DISCBD</span> + <span class='no'>INC</span> + <span class='no'>HOVAL</span>, <span class='kw'>data</span><span class='kw'>=</span><span class='no'>COL.OLD</span>,
- <span class='kw'>listw</span><span class='kw'>=</span><span class='no'>lw</span>, <span class='kw'>Durbin</span><span class='kw'>=</span> ~ <span class='no'>INC</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>COL.D1.Bayes</span>))</div><div class='output co'>#&gt; 
+#&gt; HOVAL 0.0045345 0.57476  0.798861</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span>
+<span class='va'>COL.D1.Bayes</span> <span class='op'>&lt;-</span> <span class='fu'>spBreg_lag</span><span class='op'>(</span><span class='va'>CRIME</span> <span class='op'>~</span> <span class='va'>DISCBD</span> <span class='op'>+</span> <span class='va'>INC</span> <span class='op'>+</span> <span class='va'>HOVAL</span>, data<span class='op'>=</span><span class='va'>COL.OLD</span>,
+ listw<span class='op'>=</span><span class='va'>lw</span>, Durbin<span class='op'>=</span> <span class='op'>~</span> <span class='va'>INC</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>COL.D1.Bayes</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; 
 #&gt; Iterations = 501:2500
 #&gt; Thinning interval = 1 
 #&gt; Number of chains = 1 
@@ -847,13 +887,14 @@ neighbours, if FALSE (default) assign NA</p></td>
 #&gt; lag.INC     -0.8028  0.004752   0.4224   0.8433   1.66618
 #&gt; rho         -0.2116  0.072536   0.1836   0.3067   0.53579
 #&gt; sige        67.8946 87.054945 100.9815 116.4528 161.25826
-#&gt; </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='fu'><a href='impacts.html'>impacts</a></span>(<span class='no'>COL.D1.Bayes</span>, <span class='kw'>tr</span><span class='kw'>=</span><span class='no'>trMatc</span>), <span class='kw'>short</span><span class='kw'>=</span><span class='fl'>TRUE</span>, <span class='kw'>zstats</span><span class='kw'>=</span><span class='fl'>TRUE</span>))</div><div class='output co'>#&gt; Impact measures (mixed, trace):
+#&gt; </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='fu'><a href='impacts.html'>impacts</a></span><span class='op'>(</span><span class='va'>COL.D1.Bayes</span>, tr<span class='op'>=</span><span class='va'>trMatc</span><span class='op'>)</span>, short<span class='op'>=</span><span class='cn'>TRUE</span>, zstats<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Impact measures (mixed, trace):
 #&gt;            Direct    Indirect      Total
 #&gt; DISCBD -4.8148501 -1.06067837 -5.8755285
 #&gt; INC    -0.9381442  0.29454370 -0.6436005
 #&gt; HOVAL  -0.1813164 -0.03994275 -0.2212591
 #&gt; ========================================================
-#&gt; MCMC sample impact results:
+#&gt; Simulation results ( variance matrix):
 #&gt; ========================================================
 #&gt; Simulated standard errors
 #&gt;           Direct   Indirect     Total
@@ -871,99 +912,27 @@ neighbours, if FALSE (default) assign NA</p></td>
 #&gt;        Direct   Indirect Total   
 #&gt; DISCBD 0.026482 0.45632  0.065615
 #&gt; INC    0.007001 0.73887  0.452546
-#&gt; HOVAL  0.071419 0.45856  0.103585</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='no'>elect80</span>, <span class='kw'>package</span><span class='kw'>=</span><span class='st'>"spData"</span>)
-<span class='no'>lw</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>spdep</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/spdep/topics/nb2listw'>nb2listw</a></span>(<span class='no'>e80_queen</span>, <span class='kw'>zero.policy</span><span class='kw'>=</span><span class='fl'>TRUE</span>)
-<span class='no'>el_ml</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ML_models.html'>lagsarlm</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>log</a></span>(<span class='no'>pc_turnout</span>) ~ <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>log</a></span>(<span class='no'>pc_college</span>) + <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>log</a></span>(<span class='no'>pc_homeownership</span>)
- + <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>log</a></span>(<span class='no'>pc_income</span>), <span class='kw'>data</span><span class='kw'>=</span><span class='no'>elect80</span>, <span class='kw'>listw</span><span class='kw'>=</span><span class='no'>lw</span>, <span class='kw'>zero.policy</span><span class='kw'>=</span><span class='fl'>TRUE</span>, <span class='kw'>method</span><span class='kw'>=</span><span class='st'>"LU"</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>el_ml</span>))</div><div class='output co'>#&gt; 
-#&gt; Call:
-#&gt; lagsarlm(formula = log(pc_turnout) ~ log(pc_college) + log(pc_homeownership) + 
-#&gt;     log(pc_income), data = elect80, listw = lw, method = "LU", 
-#&gt;     zero.policy = TRUE)
-#&gt; 
-#&gt; Residuals:
-#&gt;        Min         1Q     Median         3Q        Max 
-#&gt; -1.1132095 -0.0690070 -0.0037755  0.0670525  0.8084858 
-#&gt; 
-#&gt; Type: lag 
-#&gt; Regions with no neighbours included:
-#&gt;  1183 1189 1832 2945 
-#&gt; Coefficients: (numerical Hessian approximate standard errors) 
-#&gt;                        Estimate Std. Error z value  Pr(&gt;|z|)
-#&gt; (Intercept)            0.637925   0.041787 15.2660 &lt; 2.2e-16
-#&gt; log(pc_college)        0.226366   0.015759 14.3645 &lt; 2.2e-16
-#&gt; log(pc_homeownership)  0.481409   0.014524 33.1464 &lt; 2.2e-16
-#&gt; log(pc_income)        -0.104942   0.016550 -6.3408 2.285e-10
-#&gt; 
-#&gt; Rho: 0.57742, LR test value: 1085.5, p-value: &lt; 2.22e-16
-#&gt; Approximate (numerical Hessian) standard error: 0.014966
-#&gt;     z-value: 38.581, p-value: &lt; 2.22e-16
-#&gt; Wald statistic: 1488.5, p-value: &lt; 2.22e-16
-#&gt; 
-#&gt; Log likelihood: 2132.772 for lag model
-#&gt; ML residual variance (sigma squared): 0.013815, (sigma: 0.11754)
-#&gt; Number of observations: 3107 
-#&gt; Number of parameters estimated: 6 
-#&gt; AIC: -4253.5, (AIC for lm: -3170)
-#&gt; </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Random'>set.seed</a></span>(<span class='fl'>1</span>)
-<span class='no'>el_B</span> <span class='kw'>&lt;-</span> <span class='fu'>spBreg_lag</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>log</a></span>(<span class='no'>pc_turnout</span>) ~ <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>log</a></span>(<span class='no'>pc_college</span>) + <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>log</a></span>(<span class='no'>pc_homeownership</span>)
- + <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Log'>log</a></span>(<span class='no'>pc_income</span>), <span class='kw'>data</span><span class='kw'>=</span><span class='no'>elect80</span>, <span class='kw'>listw</span><span class='kw'>=</span><span class='no'>lw</span>, <span class='kw'>zero.policy</span><span class='kw'>=</span><span class='fl'>TRUE</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/summary'>summary</a></span>(<span class='no'>el_B</span>))</div><div class='output co'>#&gt; 
-#&gt; Iterations = 501:2500
-#&gt; Thinning interval = 1 
-#&gt; Number of chains = 1 
-#&gt; Sample size per chain = 2000 
-#&gt; 
-#&gt; 1. Empirical mean and standard deviation for each variable,
-#&gt;    plus standard error of the mean:
-#&gt; 
-#&gt;                           Mean        SD  Naive SE Time-series SE
-#&gt; (Intercept)            0.63963 0.0416231 9.307e-04      8.843e-04
-#&gt; log(pc_college)        0.22767 0.0159334 3.563e-04      3.563e-04
-#&gt; log(pc_homeownership)  0.48078 0.0149666 3.347e-04      3.347e-04
-#&gt; log(pc_income)        -0.10598 0.0165233 3.695e-04      3.695e-04
-#&gt; rho                    0.57602 0.0148031 3.310e-04      3.310e-04
-#&gt; sige                   0.01386 0.0003512 7.853e-06      7.177e-06
-#&gt; 
-#&gt; 2. Quantiles for each variable:
-#&gt; 
-#&gt;                          2.5%      25%      50%      75%    97.5%
-#&gt; (Intercept)            0.5589  0.61202  0.63883  0.66845  0.72085
-#&gt; log(pc_college)        0.1960  0.21724  0.22794  0.23789  0.25952
-#&gt; log(pc_homeownership)  0.4520  0.47081  0.48080  0.49069  0.51067
-#&gt; log(pc_income)        -0.1378 -0.11750 -0.10597 -0.09459 -0.07424
-#&gt; rho                    0.5478  0.56578  0.57579  0.58579  0.60480
-#&gt; sige                   0.0132  0.01362  0.01386  0.01408  0.01457
-#&gt; </div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='no'>el_ml</span>$<span class='no'>timings</span>)</div><div class='output co'>#&gt;           user.self elapsed
-#&gt; set_up        0.022   0.022
-#&gt; LU_set_up     0.003   0.003
-#&gt; LU_opt        0.225   0.227
-#&gt; coefs         0.002   0.002
-#&gt; LU_fdHess     0.324   0.329</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/attr'>attr</a></span>(<span class='no'>el_B</span>, <span class='st'>"timings"</span>))</div><div class='output co'>#&gt;                   user.self sys.self elapsed user.child sys.child
-#&gt; set_up                0.010    0.000   0.010          0         0
-#&gt; SE_classic_set_up     3.222    0.019   3.277          0         0
-#&gt; complete_setup        0.000    0.000   0.000          0         0
-#&gt; sampling              1.327    0.002   1.346          0         0
-#&gt; finalise              0.014    0.000   0.014          0         0</div></pre>
+#&gt; HOVAL  0.071419 0.45856  0.103585</div><div class='input'><span class='co'>#data(elect80, package="spData")</span>
+<span class='co'>#lw &lt;- spdep::nb2listw(e80_queen, zero.policy=TRUE)</span>
+<span class='co'>#el_ml &lt;- lagsarlm(log(pc_turnout) ~ log(pc_college) + log(pc_homeownership)</span>
+<span class='co'># + log(pc_income), data=elect80, listw=lw, zero.policy=TRUE, method="LU")</span>
+<span class='co'>#print(summary(el_ml))</span>
+<span class='co'>#set.seed(1)</span>
+<span class='co'>#el_B &lt;- spBreg_lag(log(pc_turnout) ~ log(pc_college) + log(pc_homeownership)</span>
+<span class='co'># + log(pc_income), data=elect80, listw=lw, zero.policy=TRUE)</span>
+<span class='co'>#print(summary(el_B))</span>
+<span class='co'>#print(el_ml$timings)</span>
+<span class='co'>#print(attr(el_B, "timings"))</span>
+<span class='co'># }</span>
+</div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#control-arguments">Control arguments</a></li>
-
-      <li><a href="#extra-bayesian-control-arguments">Extra Bayesian control arguments</a></li>
-
-      <li><a href="#references">References</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
-    <h2>Author</h2>
-    <p>Roger Bivand <a href='mailto:Roger.Bivand@nhh.no'>Roger.Bivand@nhh.no</a>, with thanks to Abhirup Mallik and Virgilio Gómez-Rubio for initial coding GSoC 2011</p>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -971,13 +940,16 @@ neighbours, if FALSE (default) assign NA</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

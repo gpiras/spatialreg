@@ -1,4 +1,4 @@
-# Copyright 2009-2017 by Roger Bivand
+# Copyright 2009-2021 by Roger Bivand and Gianfranco Piras
 trW <- function(W=NULL, m=30, p=16, type="mult", listw=NULL, momentsSymmetry=TRUE) {
   # returns traces
   timings <- list()
@@ -119,8 +119,9 @@ mom_calc <- function(lw, m) {
   }
   Omega
 }
+
 impacts <- function(obj, ...)
-  UseMethod("impacts", obj)
+  UseMethod("impacts")
 
 
 
@@ -472,9 +473,18 @@ intImpacts <- function(rho, beta, P, n, mu, Sigma, irho, drop2beta, bnames,
       timings[["postprocess_samples"]] <- proc.time() - .ptime_start
       res <- list(res=res, sres=ssres)
     }
+#<<<<<<< HEAD
+#    if (!is.null(R)) attr(res, "samples") <- list(samples=samples, irho=irho,
+#        drop2beta=drop2beta)
+#    attr(res, "type") <- type
+#    attr(res, "bnames") <- bnames
+#    attr(res, "haveQ") <- !is.null(Q)
+#    attr(res, "timings") <- do.call("rbind", timings)[, c(1,3)]
+#    class(res) <- "LagImpact"
+#    res
+#=======
     attr(res, "method") <- cmethod
-  } 
-  else {
+  } else {
     # added checks 140304
     stopifnot(length(listw$neighbours) == n)
      #V <- listw2mat(listw)
@@ -541,8 +551,9 @@ intImpacts <- function(rho, beta, P, n, mu, Sigma, irho, drop2beta, bnames,
   attr(res, "bnames") <- bnames
   attr(res, "haveQ") <- !is.null(Q)
   attr(res, "timings") <- do.call("rbind", timings)[, c(1,3)]
-  class(res) <- "lagImpact"
+  class(res) <- "LagImpact"
   res
+#>>>>>>> impacts_sphet
 }
 
 
@@ -588,7 +599,21 @@ lagImpactMat <- function(x, reportQ=NULL) {
 }
 
 
-print.lagImpact <- function(x, ..., reportQ=NULL) {
+#<<<<<<< HEAD
+print.LagImpact <- function(x, ..., reportQ=NULL) {
+#    mat <- lagImpactMat(x, reportQ=reportQ)
+#    Qobj <- attr(mat, "Qobj")
+#    cat("Impact measures (", attr(x, "type"), ", ", attr(x, "method"), "):\n", sep="")
+#    attr(mat, "Qobj") <- NULL
+#    print(mat)
+#    if (!is.null(reportQ) && reportQ) {
+#        if (is.null(Qobj)) warning("No impact components to report")
+#        else {
+#            cat("=================================\nImpact components\n")
+#            print(Qobj)
+#        }
+#=======
+#print.lagImpact <- function(x, ..., reportQ=NULL) {
   mat <- lagImpactMat(x, reportQ=reportQ)
   Qobj <- attr(mat, "Qobj")
   cat("Impact measures (", attr(x, "type"), ", ", attr(x, "method"), "):\n", sep="")
@@ -599,12 +624,22 @@ print.lagImpact <- function(x, ..., reportQ=NULL) {
     else {
       cat("=================================\nImpact components\n")
       print(Qobj)
+#>>>>>>> impacts_sphet
     }
   }
   invisible(x)
 }
 
-summary.lagImpact <- function(object, ..., zstats=FALSE, short=FALSE, reportQ=NULL) {
+#<<<<<<< HEAD
+summary.LagImpact <- function(object, ..., zstats=FALSE, short=FALSE, reportQ=NULL) {
+#    if (is.null(object$sres)) stop("summary method unavailable")
+# pass coda arguments 101006
+#    direct_sum <- summary(object$sres$direct, ...)
+#    indirect_sum <- summary(object$sres$indirect, ...)
+#    total_sum <- summary(object$sres$total, ...)
+# 101109 Eelke Folmer
+#=======
+#summary.lagImpact <- function(object, ..., zstats=FALSE, short=FALSE, reportQ=NULL) {
   if (is.null(object$sres)) stop("summary method unavailable")
   # pass coda arguments 101006
   direct_sum <- summary(object$sres$direct, ...)
@@ -646,6 +681,7 @@ summary.lagImpact <- function(object, ..., zstats=FALSE, short=FALSE, reportQ=NU
   res <- c(object, lres, Qmcmc)
   if (zstats) {
     # 100928 Eelke Folmer
+#>>>>>>> impacts_sphet
     if (length(attr(object, "bnames")) == 1L) {
       semat <- sapply(lres, function(x) x$statistics[2])
       semat <- matrix(semat, ncol=3)
@@ -700,6 +736,28 @@ summary.lagImpact <- function(object, ..., zstats=FALSE, short=FALSE, reportQ=NU
       if (is.null(HC)) HC <- "HC0"
       tp <- paste(HC, "IV")
     }
+#<<<<<<< HEAD
+#    if ("MCMC_sar_g" %in% attr(object, "iClass")) tp <- "MCMC samples"
+#    attr(res, "tp") <- tp
+#    class(res) <- "summary.LagImpact"
+#    res
+#}
+#
+#print.summary.LagImpact <- function(x, ...) {
+#    reportQ <- attr(x, "reportQ")
+#    mat <- lagImpactMat(x, reportQ)
+#    Qobj <- attr(mat, "Qobj")
+#    attr(mat, "Qobj") <- NULL
+#    cat("Impact measures (", attr(x, "type"), ", ", attr(x, "method"),
+#        "):\n", sep="")
+#    print(mat)
+#    if (!is.null(reportQ) && reportQ) {
+#        if (is.null(Qobj)) warning("No impact components to report")
+#        else {
+#            cat("=================================\nImpact components\n")
+#            print(Qobj)
+#        }
+#=======
   }
   if ("sphet" %in% attr(object, "iClass")) {
     tp <- "IV"
@@ -708,11 +766,11 @@ summary.lagImpact <- function(object, ..., zstats=FALSE, short=FALSE, reportQ=NU
   }
   if ("MCMC_sar_g" %in% attr(object, "iClass")) tp <- "MCMC samples"
   attr(res, "tp") <- tp
-  class(res) <- "summary.lagImpact"
+  class(res) <- "summary.LagImpact"
   res
 }
 
-print.summary.lagImpact <- function(x, ...) {
+print.summary.LagImpact <- function(x, ...) {
   reportQ <- attr(x, "reportQ")
   mat <- lagImpactMat(x, reportQ)
   Qobj <- attr(mat, "Qobj")
@@ -725,6 +783,7 @@ print.summary.lagImpact <- function(x, ...) {
     else {
       cat("=================================\nImpact components\n")
       print(Qobj)
+#>>>>>>> impacts_sphet
     }
   }
   cat("========================================================\n")
@@ -791,15 +850,15 @@ print.summary.lagImpact <- function(x, ...) {
   invisible(x)
 }
 
-plot.lagImpact <- function(x, ..., choice="direct", trace=FALSE,
-                           density=TRUE) {
-  if (is.null(x$sres)) stop("plot method unavailable")
-  plot(x$sres[[choice]], trace=trace, density=density, sub=choice)
-  invisible(x)
+plot.LagImpact <- function(x, ..., choice="direct", trace=FALSE,
+    density=TRUE) {
+    if (is.null(x$sres)) stop("plot method unavailable")
+    plot(x$sres[[choice]], trace=trace, density=density, sub=choice)
+    invisible(x)
 }
 
-HPDinterval.lagImpact <- function(obj, prob = 0.95, ..., choice="direct") {
-  if (is.null(obj$sres)) stop("HPDinterval method unavailable")
-  res <- HPDinterval(obj$sres[[choice]], prob=prob)
-  res
+HPDinterval.LagImpact <- function(obj, prob = 0.95, ..., choice="direct") {
+    if (is.null(obj$sres)) stop("HPDinterval method unavailable")
+    res <- HPDinterval(obj$sres[[choice]], prob=prob)
+    res
 }
